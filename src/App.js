@@ -3,24 +3,32 @@ import React, { useState } from 'react';
 import './App.css';
 import './resources/Lightsaber.js'
 import Lightsaber from './resources/Lightsaber.js';
+import {BladeColors, HiltColors} from './resources/Colors';
 
 function App() {
 
-  const [saberColor, setSaberColor] = useState("#ff0044");
-  const [toggle, setToggle] = useState(true);
+  const [index, setIndex] = useState(0);
+  const [saberColor, setSaberColor] = useState(BladeColors[0]);
+  const [hiltColor, setHiltColor] = useState(HiltColors[0])
+  
 
   return (
     <div className="App">
       <header className="App-header">
       <Lightsaber 
           bladeColor = {saberColor}
+          hiltColor = {hiltColor}
       />
-      <button onClick={() => {
-        setToggle(!toggle)
-        setSaberColor(toggle ? "#00FF00" : "#ff0044")
-        
-      }
-        }>Change Color</button>
+        <button className="SaberToggle" onClick={() => {
+          setIndex((index + 1) % 6)
+          setSaberColor(BladeColors[index])
+          
+        }
+          }>Change Color</button>
+
+        <button className="HiltToggle" onClick={() => {
+          setHiltColor(hiltColor === HiltColors[0] ? HiltColors[1] : HiltColors[0])
+        }}>Change Hilt </button>
       </header>
       
     </div>
