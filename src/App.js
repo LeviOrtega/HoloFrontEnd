@@ -1,40 +1,62 @@
 //import logo from './logo.svg';
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 import './resources/Lightsaber.js'
 import Lightsaber from './resources/Lightsaber.js';
 import {BladeColors, HiltColors} from './resources/Colors';
 
-function App() {
-
-  const [index, setIndex] = useState(0);
-  const [saberColor, setSaberColor] = useState(BladeColors[0]);
-  const [hiltColor, setHiltColor] = useState(HiltColors[0])
-  
-
-  return (
-    <div className="App">
-      <header className="App-header">
-      <Lightsaber 
-          bladeColor = {saberColor}
-          hiltColor = {hiltColor}
-      />
-        <button className="SaberToggle" onClick={() => {
-          setIndex((index + 1) % 6)
-          setSaberColor(BladeColors[index])
-          
-        }
-          }>Change Color</button>
-
-        <button className="HiltToggle" onClick={() => {
-          setHiltColor(hiltColor === HiltColors[0] ? HiltColors[1] : HiltColors[0])
-        }}>Change Hilt </button>
-      </header>
+class App extends React.Component {
+  constructor(props){
+  super(props)
+  this.state={
       
-    </div>
-    
-  );
+      
+      bladeColor: BladeColors[5],
+      hiltColor: HiltColors[0],
+      index: 0,
+  }
 }
+
+  
+  
+  render() {
+    console.log(this.state)
+    return (
+      <div className="App" >
+        <header className="App-header">
+        <div className="Saber-Container">
+          <Lightsaber 
+              
+              bladeColor = {this.state.bladeColor}
+              hiltColor = {this.state.hiltColor}
+          />
+        </div>
+          <button className="SaberSelect" onClick={() => {
+            
+            this.setState({
+              index: (this.state.index + 1) % 6,
+              
+              bladeColor: BladeColors[this.state.index]
+              
+            })
+            
+          }
+            }>Change Color</button>
+
+          <button className="HiltToggle" onClick={() => {
+            this.setState({
+              
+                hiltColor: (this.state.hiltColor === HiltColors[0] ? HiltColors[1] : HiltColors[0])
+              
+            })
+          }}>Change Hilt </button>
+        </header>
+        
+      </div>
+      
+    );
+        }
+  }
 
 export default App;
 

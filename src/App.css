@@ -5,16 +5,28 @@
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;
+} */
+
+.Saber-Container{
+  /* animation-name: spin;
+  animation-duration: 5000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;  */
+  
+  animation: updown 3s linear infinite;
+  position: relative
+  
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+/* @media (prefers-reduced-motion: no-preference) {
+  .Saber {
+    animation: Saber-spin infinite 20s linear;
   }
 } */
 
 .App-header {
-  background-color: #AAAAAA;
+  
+  background-color: #FAFAFA;
   min-height: 100vh;
   display: flex;
   flex-direction: row-reverse;
@@ -25,15 +37,26 @@
   
 }
 
+
+
 /* .App-link {
   color: #61dafb;
-}
+} */
 
-@keyframes App-logo-spin {
+@keyframes spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-} */
+}
+
+@keyframes updown{
+  0%, 100% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 10px;
+  }
+}
