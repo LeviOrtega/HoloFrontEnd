@@ -1,23 +1,8 @@
 import React from 'react';
 import {EyeColors} from '../resources/Colors';
+import ColorButton from './ColorButton';
 import './AssetManager.css'
 
-function EyeColorButton(props){
-    let c = props.color
-    
-    return (
-        <button 
-        className="button"
-        onClick={() => props.onClick()}
-        style={{
-            background: c,
-            
-        }}
-        
-        ></button>
-
-    )
-}
 
 class EyeManager extends React.Component{
 
@@ -25,7 +10,7 @@ class EyeManager extends React.Component{
 
     renderEyeColorOptionButton(i){
         return (
-            <EyeColorButton 
+            <ColorButton 
             color={EyeColors[i]}
             onClick={() => this.props.onClick(i)}
             />

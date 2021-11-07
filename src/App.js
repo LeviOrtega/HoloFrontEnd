@@ -1,25 +1,28 @@
-//import logo from './logo.svg';
+
 import React from 'react';
 import './App.css';
-import './resources/Lightsaber.js'
 import {BladeColors, HiltColors, RobeColors, EyeColors, SkinColors} from './resources/Colors';
-import EyeManager from './components/EyeManager';
-import BladeManager from './components/BladeManager';
-import RobeManager from './components/RobeManager';
-import SkinManager from './components/SkinManager';
-import HiltManager from './components/HiltManager';
+import EyeManager from './managers/EyeManager';
+import BladeManager from './managers/BladeManager';
+import RobeManager from './managers/RobeManager';
+import SkinManager from './managers/SkinManager';
+import HiltManager from './managers/HiltManager';
 import Background from './resources/Background';
 import Character from './resources/Character';
 
 class App extends React.Component {
+  getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+  }
+
   constructor(props){
   super(props)
   this.state={
-      bladeColor: BladeColors[0],
-      hiltColor: HiltColors[0],
-      robeColor: RobeColors[0],
-      eyeColor: EyeColors[0],
-      skinColor: SkinColors[0],
+      bladeColor: BladeColors[this.getRandomInt(6)],
+      hiltColor: HiltColors[this.getRandomInt(3)],
+      robeColor: RobeColors[this.getRandomInt(6)],
+      eyeColor: EyeColors[this.getRandomInt(6)],
+      skinColor: SkinColors[this.getRandomInt(6)],
   }
 }
 

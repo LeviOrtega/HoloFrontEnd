@@ -1,7 +1,7 @@
 export const BladeColors = [
-    "#FF0000", // red
+    "#F20000", // red
     "#F79807", // orange
-    "#F8F11C", // yellow
+    "#FEFE00", // yellow
     "#00FF00", // green
     "#0000FF", // blue
     "#BF40BF", // purple
@@ -17,18 +17,20 @@ export const RobeColors = [
     "#000000", // black
     "#FFFFFF", // white
     "#AB9B69", // grey
-    "#9C7600", // tan
-    "#16337D", // blue
     "#7D1616", // red
+    "#16337D", // blue
+    "#9C7600", // tan
+   
 ]
 
 export const EyeColors = [
-    "#3498DB", // blue
-    "#52BE80", // green
-    "#D4AC0D", // hazel
-    "#A04000", // brown
-    "#C40505", // red
     "#FFFFFF", // white
+    "#C40505", // red
+    "#A04000", // brown
+    "#D4AC0D", // hazel
+    "#52BE80", // green
+    "#3498DB", // blue
+    
 ]
 
 export const SkinColors = [

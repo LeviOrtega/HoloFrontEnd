@@ -2,11 +2,6 @@
   text-align: center;
 }
 
-/* .App-logo {
-  height: 40vmin;
-  pointer-events: none;
-} */
-
 .Results-Container{
   position:relative;
 }
@@ -51,12 +46,6 @@
   flex-direction: column;
   min-width: 300px;
 }
-
-
-
-/* .App-link {
-  color: #61dafb;
-} */
 
 @keyframes spin {
   from {

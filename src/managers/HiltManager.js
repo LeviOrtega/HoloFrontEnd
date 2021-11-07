@@ -1,23 +1,8 @@
 import React from 'react';
 import {HiltColors} from '../resources/Colors';
+import ColorButton from './ColorButton';
 import './AssetManager.css'
 
-function HiltColorButton(props){
-    let c = props.color
-    
-    return (
-        <button 
-        className="button"
-        onClick={() => props.onClick()}
-        style={{
-            background: c,
-            
-        }}
-        
-        ></button>
-
-    )
-}
 
 class HiltManager extends React.Component{
 
@@ -25,7 +10,7 @@ class HiltManager extends React.Component{
 
     renderHiltColorOptionButton(i){
         return (
-            <HiltColorButton 
+            <ColorButton 
             color={HiltColors[i]}
             onClick={() => this.props.onClick(i)}
             />

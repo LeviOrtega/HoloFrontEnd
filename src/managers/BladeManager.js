@@ -1,30 +1,14 @@
 import React from 'react';
 import {BladeColors} from '../resources/Colors';
+import ColorButton from './ColorButton';
 import './AssetManager.css'
-function BladeColorButton(props){
-    let c = props.color
 
-
-    return (
-        
-        <button className="button"
-        onClick={() => props.onClick()}
-        style={{ 
-            background: c,
-        }}
-        
-        ></button>
-    )
-}
 
 class BladeManager extends React.Component{
 
-
-    
-
     renderBladeColorOptionButton(i){
         return( 
-            <BladeColorButton
+            <ColorButton
             color={BladeColors[i]}
             onClick={() => this.props.onClick(i)} 
             />

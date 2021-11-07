@@ -1,31 +1,14 @@
 import React from 'react';
 import {SkinColors} from '../resources/Colors';
+import ColorButton from './ColorButton';
 import './AssetManager.css'
 
-function SkinColorButton(props){
-    let c = props.color
-    
-    return (
-        <button 
-        className="button"
-        onClick={() => props.onClick()}
-        style={{
-            background: c,
-            
-        }}
-        
-        ></button>
-
-    )
-}
 
 class SkinManager extends React.Component{
 
-
-
     renderSkinColorOptionButton(i){
         return (
-            <SkinColorButton 
+            <ColorButton 
             color={SkinColors[i]}
             onClick={() => this.props.onClick(i)}
             />

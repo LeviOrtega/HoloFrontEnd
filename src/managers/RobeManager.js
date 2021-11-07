@@ -1,23 +1,9 @@
 import React from 'react';
 import {RobeColors} from '../resources/Colors';
+import ColorButton from './ColorButton';
 import './AssetManager.css'
 
-function RobeColorButton(props){
-    let c = props.color
-    
-    return (
-        <button 
-        className="button"
-        onClick={() => props.onClick()}
-        style={{
-            background: c,
-            
-        }}
-        
-        ></button>
 
-    )
-}
 
 class RobeManager extends React.Component{
 
@@ -25,7 +11,7 @@ class RobeManager extends React.Component{
 
     renderRobeColorOptionButton(i){
         return (
-            <RobeColorButton 
+            <ColorButton 
             color={RobeColors[i]}
             onClick={() => this.props.onClick(i)}
             />
