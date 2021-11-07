@@ -3,15 +3,18 @@ import {HiltColors} from '../resources/Colors';
 import './AssetManager.css'
 
 function HiltColorButton(props){
-
+    let c = props.color
+    
     return (
         <button 
+        className="button"
         onClick={() => props.onClick()}
         style={{
-            color: props.color
+            background: c,
+            
         }}
         
-        >X</button>
+        ></button>
 
     )
 }
@@ -22,7 +25,7 @@ class HiltManager extends React.Component{
 
     renderHiltColorOptionButton(i){
         return (
-            <HiltColorButton
+            <HiltColorButton 
             color={HiltColors[i]}
             onClick={() => this.props.onClick(i)}
             />
@@ -38,6 +41,7 @@ class HiltManager extends React.Component{
                 <div className="button-container">
                 {this.renderHiltColorOptionButton(0)}
                 {this.renderHiltColorOptionButton(1)}
+                {this.renderHiltColorOptionButton(2)}
             </div>
         </div>
         )

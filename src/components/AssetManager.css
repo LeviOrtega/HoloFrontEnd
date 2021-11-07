@@ -5,10 +5,18 @@
     font-family: 'Times New Roman', Times, serif;
     font-size: 2vmin;
     color: black;
-    row-gap: 10px;
+   
 }
 
 .title{
     text-align: left;
-    width: 10vmin;
+    width: 8vmin;
+}
+
+.button{
+    border-radius: 20%;
+    width: 2vmax;
+    height: 2vmax;
+    margin: 5px;
+   
 }

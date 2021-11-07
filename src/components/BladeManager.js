@@ -2,15 +2,18 @@ import React from 'react';
 import {BladeColors} from '../resources/Colors';
 import './AssetManager.css'
 function BladeColorButton(props){
+    let c = props.color
+
 
     return (
-        <button className="bladecolorbutton" 
+        
+        <button className="button"
         onClick={() => props.onClick()}
         style={{ 
-            color:props.color
+            background: c,
         }}
         
-        >X</button>
+        ></button>
     )
 }
 

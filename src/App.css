@@ -7,14 +7,19 @@
   pointer-events: none;
 } */
 
-.Saber-Container{
-  /* animation-name: spin;
-  animation-duration: 5000ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;  */
-  
+.Results-Container{
+  position:relative;
+}
+.inner{
+  position: absolute; 
+  top: 0; left: 0; right: 0; bottom:0;
+}
+
+.Character-Container{
+ 
   animation: updown 3s linear infinite;
-  position: relative
+  position: relative;
+
   
 }
 
@@ -24,9 +29,9 @@
   }
 } */
 
-.App-header {
+.Main-Container{
   
-  background-color: #FAFAFA;
+  background-color: #555555;
   min-height: 100vh;
   display: flex;
   flex-direction: row-reverse;
@@ -35,11 +40,16 @@
   font-size: calc(10px + 2vmin);
   color: white;
   
+  
 }
 
+
 .Asset-manager-container{
+  margin-right: 10px;
+  position: relative;
   display: flex;
   flex-direction: column;
+  min-width: 300px;
 }
 
 
@@ -59,9 +69,9 @@
 
 @keyframes updown{
   0%, 100% {
-    bottom: 0;
+    bottom: -10px;
   }
   50% {
-    bottom: 10px;
+    bottom: 0px;
   }
 }
