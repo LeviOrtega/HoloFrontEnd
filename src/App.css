@@ -37,6 +37,11 @@
   
 }
 
+.Asset-manager-container{
+  display: flex;
+  flex-direction: column;
+}
+
 
 
 /* .App-link {

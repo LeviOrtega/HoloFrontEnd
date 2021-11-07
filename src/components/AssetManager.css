@@ -1,0 +1,14 @@
+.container{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 2vmin;
+    color: black;
+    row-gap: 10px;
+}
+
+.title{
+    text-align: left;
+    width: 10vmin;
+}

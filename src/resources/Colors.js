@@ -8,7 +8,7 @@ export const BladeColors = [
 ]
 
 export const HiltColors = [
-    "#c0c0c0",
+    "#F5D317",
     "#000000"
 ]
 

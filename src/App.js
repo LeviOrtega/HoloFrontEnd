@@ -4,58 +4,52 @@ import './App.css';
 import './resources/Lightsaber.js'
 import Lightsaber from './resources/Lightsaber.js';
 import {BladeColors, HiltColors} from './resources/Colors';
+import BladeManager from './components/BladeManager';
+import HiltManager from './components/HiltManager';
 
 class App extends React.Component {
   constructor(props){
   super(props)
   this.state={
-      
-      
       bladeColor: BladeColors[5],
-      hiltColor: HiltColors[0],
-      index: 0,
+      hiltColor: HiltColors[1],
   }
 }
 
+  handleBladeChange(i){
+    this.setState({
+      bladeColor: BladeColors[i]
+      
+    })
+  }
+
+  handleHiltChange(i){
+    this.setState({
+      hiltColor: HiltColors[i]
+    })
+  }
   
   
   render() {
-    console.log(this.state)
     return (
       <div className="App" >
         <header className="App-header">
-        <div className="Saber-Container">
-          <Lightsaber 
-              
-              bladeColor = {this.state.bladeColor}
-              hiltColor = {this.state.hiltColor}
-          />
-        </div>
-          <button className="SaberSelect" onClick={() => {
-            
-            this.setState({
-              index: (this.state.index + 1) % 6,
-              
-              bladeColor: BladeColors[this.state.index]
-              
-            })
-            
-          }
-            }>Change Color</button>
-
-          <button className="HiltToggle" onClick={() => {
-            this.setState({
-              
-                hiltColor: (this.state.hiltColor === HiltColors[0] ? HiltColors[1] : HiltColors[0])
-              
-            })
-          }}>Change Hilt </button>
-        </header>
+          <div className="Saber-Container">
+            <Lightsaber 
+                bladeColor = {this.state.bladeColor}
+                hiltColor = {this.state.hiltColor}
+            />
+          </div>
+          <div className="Asset-manager-container">
+            <BladeManager className="Blade-color" onClick={(i) => this.handleBladeChange(i)}/>
+            <HiltManager className="Hilt-color" onClick={(i) => this.handleHiltChange(i)}/>
+          </div>
+      </header>
         
       </div>
       
     );
-        }
+    }
   }
 
 export default App;
