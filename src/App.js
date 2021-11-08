@@ -7,7 +7,6 @@ import BladeManager from './managers/BladeManager';
 import RobeManager from './managers/RobeManager';
 import SkinManager from './managers/SkinManager';
 import HiltManager from './managers/HiltManager';
-import Background from './resources/Background';
 import Character from './resources/Character';
 
 class App extends React.Component {
@@ -58,14 +57,6 @@ class App extends React.Component {
       eyeColor: EyeColors[i]
     })
   }
-
-  // renderResultBackground(color){
-  //   return (
-  //     <Background 
-  //       bgColor = {color}
-  //     />
-  //   )
-  // }
   
   
   render() {
@@ -73,11 +64,10 @@ class App extends React.Component {
       <div className="App" >
         <div className="Main-Container">
 
-          <div className="Results-Container">
-           
+          <div className="Character-Background">
 
             <div className="Character-Container">
-              <Character
+              <Character className="Char"
                   bladeColor = {this.state.bladeColor}
                   hiltColor = {this.state.hiltColor}
                   robeColor = {this.state.robeColor}

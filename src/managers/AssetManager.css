@@ -1,20 +1,25 @@
 .container{
+    background: linear-gradient(90deg, #390101 0%, #390101 100%);
+    border-radius: 10%;
+    border: white;
+    border-style: solid;
     display:flex;
     flex-direction: row;
     align-items: center;
     font-family: 'SMW Text 2 NC', sans-serif;
     font-size: 1.5vh;
-    color: black;
+    color: white;
    
 }
 
 .title{
     text-align: right;
-    width: 12vmin;
+    width: 5vmax;
     margin-right: 2px;
 }
 
 .button{
+
     border-radius: 20%;
     border: none;
     width: 2vmax;
