@@ -20,7 +20,7 @@ class SkinManager extends React.Component{
         return (
             
         <div className="container">
-                <h3 className="title">Skin</h3>
+                <h3 className="title">Skin:</h3>
                 <div className="button-container">
                 {this.renderSkinColorOptionButton(0)}
                 {this.renderSkinColorOptionButton(1)}

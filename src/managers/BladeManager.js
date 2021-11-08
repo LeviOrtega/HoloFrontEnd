@@ -21,7 +21,7 @@ class BladeManager extends React.Component{
     render() {
         return (
                 <div className="container">
-                    <h3 className="title">Blade</h3>
+                    <h3 className="title">Blade:</h3>
                     <div className="button-container">
                     {this.renderBladeColorOptionButton(0)}
                     {this.renderBladeColorOptionButton(1)}

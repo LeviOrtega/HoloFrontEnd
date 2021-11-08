@@ -2,21 +2,23 @@
     display:flex;
     flex-direction: row;
     align-items: center;
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 2vmin;
+    font-family: 'SMW Text 2 NC', sans-serif;
+    font-size: 1.5vh;
     color: black;
    
 }
 
 .title{
-    text-align: left;
-    width: 8vmin;
+    text-align: right;
+    width: 12vmin;
+    margin-right: 2px;
 }
 
 .button{
     border-radius: 20%;
+    border: none;
     width: 2vmax;
     height: 2vmax;
-    margin: 5px;
-   
+    margin:1px;
+
 }

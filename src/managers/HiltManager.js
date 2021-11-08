@@ -22,7 +22,7 @@ class HiltManager extends React.Component{
         return (
             
         <div className="container">
-                <h3 className="title">Hilt</h3>
+                <h3 className="title">Hilt:</h3>
                 <div className="button-container">
                 {this.renderHiltColorOptionButton(0)}
                 {this.renderHiltColorOptionButton(1)}

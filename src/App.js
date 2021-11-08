@@ -59,34 +59,33 @@ class App extends React.Component {
     })
   }
 
-  renderResultBackground(color){
-    return (
-      <Background 
-        bgColor = {color}
-      />
-    )
-  }
+  // renderResultBackground(color){
+  //   return (
+  //     <Background 
+  //       bgColor = {color}
+  //     />
+  //   )
+  // }
   
   
   render() {
     return (
       <div className="App" >
         <div className="Main-Container">
+
           <div className="Results-Container">
-            <div className="inner">{this.renderResultBackground("#262b44")}</div>
-              <div className="Character-Container">
-             
-                <Character
-                    bladeColor = {this.state.bladeColor}
-                    hiltColor = {this.state.hiltColor}
-                    robeColor = {this.state.robeColor}
-                    eyeColor = {this.state.eyeColor}
-                    skinColor = {this.state.skinColor}
-                />
-    
+           
+
+            <div className="Character-Container">
+              <Character
+                  bladeColor = {this.state.bladeColor}
+                  hiltColor = {this.state.hiltColor}
+                  robeColor = {this.state.robeColor}
+                  eyeColor = {this.state.eyeColor}
+                  skinColor = {this.state.skinColor}
+              />
             </div>
-          </div>
-              
+          </div>  
           <div className="Asset-manager-container">
             <BladeManager className="Blade-color" onClick={(i) => this.handleBladeChange(i)}/>
             <HiltManager className="Hilt-color" onClick={(i) => this.handleHiltChange(i)}/>

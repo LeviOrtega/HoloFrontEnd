@@ -22,7 +22,7 @@ class EyeManager extends React.Component{
         return (
             
         <div className="container">
-                <h3 className="title">Eyes</h3>
+                <h3 className="title">Eyes:</h3>
                 <div className="button-container">
                 {this.renderEyeColorOptionButton(0)}
                 {this.renderEyeColorOptionButton(1)}

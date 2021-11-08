@@ -23,7 +23,7 @@ class RobeManager extends React.Component{
         return (
             
         <div className="container">
-                <h3 className="title">Robe</h3>
+                <h3 className="title">Robe:</h3>
                 <div className="button-container">
                 {this.renderRobeColorOptionButton(0)}
                 {this.renderRobeColorOptionButton(1)}

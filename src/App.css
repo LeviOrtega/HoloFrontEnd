@@ -1,33 +1,53 @@
 .App {
-  text-align: center;
+  
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+  margin-top: 10%;
+  
 }
 
-.Results-Container{
+/* .Results-Container{
   position:relative;
 }
 .inner{
   position: absolute; 
   top: 0; left: 0; right: 0; bottom:0;
-}
-
-.Character-Container{
- 
-  animation: updown 3s linear infinite;
-  position: relative;
-
-  
-}
-
-/* @media (prefers-reduced-motion: no-preference) {
-  .Saber {
-    animation: Saber-spin infinite 20s linear;
-  }
 } */
 
-.Main-Container{
+/* .Results-Container{
+  display: flex;
+  flex-direction: row;
+  width:50%;
+  height: 120vh;
+  align-items: center;
+  object-fit: contain;
   
-  background-color: #555555;
-  min-height: 100vh;
+} */
+
+/* Background{
+  object-fit: cover;
+  position: fixed;
+  z-index: -1;
+} */
+
+
+
+.Character-Container{
+  padding-bottom: 10px;
+  position: relative;
+  animation: updown 3s linear infinite;
+  
+}
+
+.Main-Container{
+
+  background: linear-gradient(90deg, #262b44 0%, #262b44 100%);
+  border-radius: 5%;
+  border: white;
+  border-style: solid;
+  width: 100vmin;
   display: flex;
   flex-direction: row-reverse;
   align-items: center;
@@ -40,21 +60,23 @@
 
 
 .Asset-manager-container{
-  margin-right: 10px;
   position: relative;
+  margin-right: 20px;
   display: flex;
   flex-direction: column;
+  row-gap: 0;
   min-width: 300px;
+  z-index: 2;
 }
 
-@keyframes spin {
+/* @keyframes spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
   }
-}
+} */
 
 @keyframes updown{
   0%, 100% {
