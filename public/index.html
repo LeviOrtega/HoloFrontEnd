@@ -25,7 +25,35 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
     <title>React App</title>
+    <link href="http://fonts.cdnfonts.com/css/smw-text-nc" rel="stylesheet">
+    <style> @import url('http://fonts.cdnfonts.com/css/smw-text-nc'); </style>
   </head>
+
+
+
+  <script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.4.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyC5X7SoBByQIlqdlOwpgMumNe30_M6sdWY",
+      authDomain: "holocron-e6f23.firebaseapp.com",
+      projectId: "holocron-e6f23",
+      storageBucket: "holocron-e6f23.appspot.com",
+      messagingSenderId: "813088757127",
+      appId: "1:813088757127:web:7335bda2aee6d37457ef22",
+      measurementId: "G-D2487FH0L0"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
