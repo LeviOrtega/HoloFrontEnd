@@ -2,7 +2,7 @@
 import React from 'react';
 import './App.css';
 import {BladeColors, HiltColors, RobeColors, EyeColors, SkinColors} from './resources/Colors';
-import CharacterCreate from './CharacterCreate';
+import CharacterCreate from './components/CharacterCreate';
 
 class App extends React.Component {
   getRandomInt(max) {

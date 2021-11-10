@@ -1,12 +1,8 @@
 import React from 'react'
 import './CharacterCreate.css'
-import {BladeColors, HiltColors, RobeColors, EyeColors, SkinColors} from './resources/Colors';
-import EyeManager from './managers/EyeManager';
-import BladeManager from './managers/BladeManager';
-import RobeManager from './managers/RobeManager';
-import SkinManager from './managers/SkinManager';
-import HiltManager from './managers/HiltManager';
-import Character from './resources/Character';
+import AssetManager from './AssetManager'
+import {BladeColors, HiltColors, RobeColors, EyeColors, SkinColors} from '../resources/Colors'
+import Character from '../resources/Character'
 
 
 
@@ -77,11 +73,15 @@ class CharacterCreate extends React.Component {
                 </div>
               </div>  
               <div className="Asset-manager-container">
-                <BladeManager className="Blade-color" onClick={(i) => this.handleBladeChange(i)}/>
-                <HiltManager className="Hilt-color" onClick={(i) => this.handleHiltChange(i)}/>
-                <RobeManager className="Robe-color" onClick={(i) => this.handleRobeChange(i)}/>
-                <EyeManager className="Eye-color" onClick={(i) => this.handleEyeChange(i)}/>
-                <SkinManager className="Skin-color" onClick={(i) => this.handleSkinChange(i)}/>
+                <AssetManager className ="Blade-Assets" title={"Blade:"} buttonCount={6} colorArray={BladeColors} onClick={(i) => this.handleBladeChange(i)}/>
+
+                <AssetManager className ="Hilt-Assets" title={"Hilt:"} buttonCount={3} colorArray={HiltColors} onClick={(i) => this.handleHiltChange(i)}/>
+                
+                <AssetManager className ="Robe-Assets" title={"Robe:"} buttonCount={6} colorArray={RobeColors} onClick={(i) => this.handleRobeChange(i)}/>
+
+                <AssetManager className ="Eye-Assets" title={"Eyes:"} buttonCount={6} colorArray={EyeColors} onClick={(i) => this.handleEyeChange(i)}/>
+
+                <AssetManager className ="Skin-Assets" title={"Skin:"} buttonCount={6} colorArray={SkinColors} onClick={(i) => this.handleSkinChange(i)}/>
                 <button className="alignment-button" onClick={() => console.log("hello")}>Alignment</button>
               </div>
           </div>
