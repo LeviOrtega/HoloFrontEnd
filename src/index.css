@@ -14,3 +14,10 @@ code {
     monospace; */
     font-family: 'SMW Text 2 NC', sans-serif;
 }
+
+@font-face {
+  font-family: 'SMW Text 2 NC';
+  font-style: normal;
+  font-weight: 400;
+  src: local('SMW Text 2 NC'), url('https://fonts.cdnfonts.com/s/7371/SMW Text 2 NC.woff') format('woff');
+}
