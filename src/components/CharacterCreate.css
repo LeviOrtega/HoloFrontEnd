@@ -1,10 +1,9 @@
 .CharacterCreate {
   
-    display: flex;
-    flex-direction: column;
-    
-    align-items: center;
-    margin-top: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10%;
     
   }
   
@@ -31,7 +30,7 @@
     border: white;
     border-style: solid;
     width: 50vmax;
-    height: 40vmax;
+    height: 30vmax;
     display: flex;
     flex-direction: row-reverse;
     align-items: center;
@@ -45,7 +44,6 @@
   
   .Asset-manager-container{
     position: relative;
-    margin-right: 20px;
     display: flex;
     flex-direction: column;
     row-gap: 1vmax;

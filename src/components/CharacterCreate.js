@@ -70,6 +70,7 @@ class CharacterCreate extends React.Component {
                       eyeColor = {this.state.eyeColor}
                       skinColor = {this.state.skinColor}
                   />
+                  
                 </div>
               </div>  
               <div className="Asset-manager-container">
@@ -82,7 +83,7 @@ class CharacterCreate extends React.Component {
                 <AssetManager className ="Eye-Assets" title={"Eyes:"} buttonCount={6} colorArray={EyeColors} onClick={(i) => this.handleEyeChange(i)}/>
 
                 <AssetManager className ="Skin-Assets" title={"Skin:"} buttonCount={6} colorArray={SkinColors} onClick={(i) => this.handleSkinChange(i)}/>
-                <button className="alignment-button" onClick={() => console.log("hello")}>Alignment</button>
+               
               </div>
           </div>
             
