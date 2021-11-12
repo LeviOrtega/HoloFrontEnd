@@ -1,26 +1,32 @@
 
 import React from 'react';
 import './App.css';
-import {BladeColors, HiltColors, RobeColors, EyeColors, SkinColors} from './resources/Colors';
-import CharacterCreate from './components/CharacterCreate';
+//import { Outlet } from 'react-router-dom';
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import './index.css';
+import CharacterCreatePage from './pages/CharacterCreatePage';
+import Home from './pages/Home';
 
 class App extends React.Component {
-  getRandomInt(max) {
-    return Math.floor(Math.random() * max);
-  }
+
 
   render() {
     return (
-      <div className="App" >
-        <CharacterCreate 
-        bladeColor={BladeColors[this.getRandomInt(6)]}
-        hiltColor={HiltColors[this.getRandomInt(3)]}
-        robeColor={RobeColors[this.getRandomInt(6)]}
-        eyeColor={EyeColors[this.getRandomInt(6)]}
-        skinColor={SkinColors[this.getRandomInt(6)]}
-        />
+      <BrowserRouter>
+      <Routes>
+          <Route path="/" element={<Home />}>
 
-      </div>
+          <Route path="/Create_character" element={<CharacterCreatePage />} />
+
+          </Route>
+
+
+          
+
+
+      </Routes>
+   
+   </BrowserRouter>
       
     );
     }

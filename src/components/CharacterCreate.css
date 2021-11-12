@@ -16,7 +16,7 @@
     border-style: solid;
   }
   
-  .Character-Container{
+  .character{
   
     position: relative;
     animation: updown 3s linear infinite;

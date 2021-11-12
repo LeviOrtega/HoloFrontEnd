@@ -61,9 +61,10 @@ class CharacterCreate extends React.Component {
 
 
               <div className="Character-Background">
+
     
                 <div className="Character-Container">
-                  <Character className="Char"
+                  <Character 
                       bladeColor = {this.state.bladeColor}
                       hiltColor = {this.state.hiltColor}
                       robeColor = {this.state.robeColor}

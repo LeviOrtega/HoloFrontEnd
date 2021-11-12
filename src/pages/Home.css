@@ -1,0 +1,32 @@
+.navbar{
+    background: linear-gradient(90deg, #262b44 0%, #262b44 100%);
+    height: 80px;
+    
+    display: flex;
+    border:white;
+    border-style: solid 1px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+
+    
+    color: white;
+    position: sticky;
+    top: 0;
+   
+  
+}
+
+.navbar-container{
+   
+}
+
+
+.link{
+    margin: 100px;
+    color: #FFF;
+}
+
+.link:hover{
+    color: #AAA;
+}
