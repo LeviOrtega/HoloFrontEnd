@@ -2,7 +2,6 @@
 import React from 'react';
 import {BladeColors, HiltColors, RobeColors, EyeColors, SkinColors} from '../resources/Colors';
 import CharacterCreate from '../components/CharacterCreate';
-import './CharacterCreatePage.css'
 
 class CharacterCreatePage extends React.Component {
   getRandomInt(max) {

@@ -2,31 +2,33 @@
 import React from 'react';
 import './App.css';
 //import { Outlet } from 'react-router-dom';
-import { Routes, Route, BrowserRouter } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import './index.css';
 import CharacterCreatePage from './pages/CharacterCreatePage';
-import Home from './pages/Home';
+import Navbar from './Navbar';
+import Main from './pages/Main';
+
 
 class App extends React.Component {
 
 
   render() {
     return (
-      <BrowserRouter>
-      <Routes>
-          <Route path="/" element={<Home />}>
+     
+      <Router>
+        <Navbar />
 
-          <Route path="/Create_character" element={<CharacterCreatePage />} />
-
-          </Route>
-
+        <Routes>
+          <Route path="/" element={<Main />}/>
+          <Route path="/character-create" element={<CharacterCreatePage />} />
 
           
 
+        </Routes>
 
-      </Routes>
+
+      </Router>
    
-   </BrowserRouter>
       
     );
     }
