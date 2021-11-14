@@ -55,15 +55,16 @@ class CharacterCreate extends React.Component {
       
       render() {
         return (
-          <div className="CharacterCreate" >
+          
 
             <div className="Main-Container">
 
+              <div className="CharacterCreate" >
 
               <div className="Character-Background">
 
     
-                <div className="Character-Container">
+                
                   <Character 
                       bladeColor = {this.state.bladeColor}
                       hiltColor = {this.state.hiltColor}
@@ -72,7 +73,7 @@ class CharacterCreate extends React.Component {
                       skinColor = {this.state.skinColor}
                   />
                   
-                </div>
+          
               </div>  
               <div className="Asset-manager-container">
                 <AssetManager className ="Blade-Assets" title={"Blade:"} buttonCount={6} colorArray={BladeColors} onClick={(i) => this.handleBladeChange(i)}/>

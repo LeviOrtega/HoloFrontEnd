@@ -1,3 +1,5 @@
 # Holocron Resume Project
 
-This project was created for the Sporediggers hackathon competition. As we all know, resumes are boring, boring to read, boring to write. Well no more, if you're a Star Wars nerd that is. The main goal of this project was to create a fun, interactive, and overall creative experience for those who want to add some flair to their resume. I did this by creating a website where users could create their Star Wars avatar, choose their side, upload their resume, and watch their 'Holocron Resume' come to life. 
+This website was created by me, Levi Ortega, for a Hackathon competition hosted by the company Spore. My idea behind this project was to create a fun and interactive experience when it came to reviewing resumes. I wanted to incorporate my love for Star Wars and challenge myself by taking on new technologies and competing in my first Hackathon. This project was created using React as the front end, and Firebase/Firestore for the back end, hosting, and database. 
+
+All of the code is open source to view here: https://github.com/LeviOrtega/HoloFrontEnd

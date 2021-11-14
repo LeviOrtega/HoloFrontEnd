@@ -6,14 +6,12 @@
     display:flex;
     flex-direction: row;
     align-items: center;
-    font-size: 1.5vmin;
-    color: white;
     padding:5px;
 }
 
 .title{
     text-align: left;
-    width: 5vmax;
+    width: 10vmin;
     
 }
 
@@ -21,8 +19,8 @@
 
     border-radius: 20%;
     border: none;
-    width: 2vmax;
-    height: 2vmax;
+    width: 5vmin;
+    height: 5vmin;
     margin:1px;
 
 }

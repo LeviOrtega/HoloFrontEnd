@@ -1,22 +1,31 @@
 import React from "react"
+import {BladeColors, HiltColors, RobeColors, EyeColors, SkinColors} from '../resources/Colors';
+import Character from "../resources/Character";
 
 class Main extends React.Component{
+    getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+      }
 
-
-    render(){
-
-        return (
+    
             
-           
-                <div style={{display:"flex", justifyContent:"center", flexDirection:"column", color:"white", textAlign:"center"}} className="navbar-container">
-                <h3 >Welcome to Holocron Resume</h3>
-                <p>This project was created for the Sporediggers hackathon competition. As we all know, resumes are boring, boring to read, boring to write. Well no more, if you're a Star Wars nerd that is. The main goal of this project was to create a fun, interactive, and overall creative experience for those who want to add some flair to their resume. I did this by creating a website where users could create their Star Wars avatar, choose their side, upload their resume, and watch their 'Holocron Resume' come to life.</p>
-                </div>
-             
-           
-           
-        )
+              render() {
+                 return (
+        // this is just a placeholder for main
+        <div className="main" style={{justifyContent:"center", width:500,position:"relative"}} >
+        <Character
+        bladeColor={BladeColors[this.getRandomInt(6)]}
+        hiltColor={HiltColors[this.getRandomInt(3)]}
+        robeColor={RobeColors[this.getRandomInt(6)]}
+        eyeColor={EyeColors[this.getRandomInt(6)]}
+        skinColor={SkinColors[this.getRandomInt(6)]}
+        />
+
+        </div>
+        
+    );
     }
+    
 }
 
 export default Main

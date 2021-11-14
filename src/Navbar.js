@@ -15,7 +15,7 @@ class Navbar extends React.Component{
                 <div className="navbar-container">
                 <Link className="link site-title" to="/" style={{textDecoration:"none"}}> Holocron Resume </Link>
                 <Link className="link" to="/character-create"  style={{textDecoration:"none"}}> Character Create </Link>
-               
+                <Link className="link" to="/about"  style={{textDecoration:"none"}}> About </Link>
                 </div>
                
             </nav>
