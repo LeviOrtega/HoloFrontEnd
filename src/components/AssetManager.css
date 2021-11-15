@@ -1,12 +1,14 @@
 .container{
     /* max-width: 90%; */
-    /* border-radius: 5%;
+    /* border-radius: 4%;
     border: white;
     border-style: solid; */
     display:flex;
     flex-direction: row;
     align-items: center;
     padding:5px;
+    height: 2vw;
+
 }
 
 .title{
@@ -19,8 +21,27 @@
 
     border-radius: 20%;
     border: none;
-    width: 5vmin;
-    height: 5vmin;
+    width: 2vw;
+    height: 2vw;
     margin:1px;
+    opacity: 0.8;
 
 }
+
+.button:hover{
+ 
+    opacity: 1.5 ;
+    cursor: pointer;
+
+    position: relative;
+    animation: updown 2s infinite;
+}
+
+@keyframes updown{
+    0%, 100% {
+      bottom: 1px;
+    }
+    50% {
+      bottom: 0px;
+    }
+  }

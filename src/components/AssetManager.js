@@ -9,6 +9,7 @@ function ColorButton(props){
         onClick={() => props.onClick()}
         style={{ 
             background: c,
+           
         }}
         
         ></button>
@@ -39,7 +40,7 @@ class AssetManager extends React.Component{
         return (
                 <div className="container">
                     
-                    <h3 className="title">{this.props.title}</h3>
+                    <h4 className="title">{this.props.title}</h4>
                     <div className="button-container">
                     {this.getButtons(this.props.buttonCount)}
                     </div>

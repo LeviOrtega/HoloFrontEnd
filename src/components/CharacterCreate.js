@@ -1,7 +1,7 @@
 import React from 'react'
 import './CharacterCreate.css'
 import AssetManager from './AssetManager'
-import {BladeColors, HiltColors, RobeColors, EyeColors, SkinColors} from '../resources/Colors'
+import {BladeColors, HiltColors, RobeColors, EyeColors, SkinColors, BackgroundColors} from '../resources/Colors'
 import Character from '../resources/Character'
 
 
@@ -15,7 +15,9 @@ class CharacterCreate extends React.Component {
           hiltColor: this.props.hiltColor,
           robeColor: this.props.robeColor,
           eyeColor: this.props.eyeColor,
-          skinColor: this.props.skinColor
+          skinColor: this.props.skinColor,
+          isSith: this.props.isSith,
+          backgroundColor: BackgroundColors[(this.props.isSith ? 1 : 0)],
       }
     }
     
@@ -51,46 +53,56 @@ class CharacterCreate extends React.Component {
           eyeColor: EyeColors[i]
         })
       }
+
+      handleFactionChange(){
+        this.setState({
+          isSith: !(this.state.isSith),
+          backgroundColor: BackgroundColors[!this.state.isSith ? 1 : 0]
+        })
+      }
       
       
       render() {
         return (
           
 
-            <div className="Main-Container">
+      <div className="Main-Container">
 
-              <div className="CharacterCreate" >
-
-              <div className="Character-Background">
-
-    
-                
-                  <Character 
-                      bladeColor = {this.state.bladeColor}
-                      hiltColor = {this.state.hiltColor}
-                      robeColor = {this.state.robeColor}
-                      eyeColor = {this.state.eyeColor}
-                      skinColor = {this.state.skinColor}
-                  />
-                  
+        <div className="CharacterCreate" >
           
-              </div>  
-              <div className="Asset-manager-container">
-                <AssetManager className ="Blade-Assets" title={"Blade:"} buttonCount={6} colorArray={BladeColors} onClick={(i) => this.handleBladeChange(i)}/>
+            
 
-                <AssetManager className ="Hilt-Assets" title={"Hilt:"} buttonCount={3} colorArray={HiltColors} onClick={(i) => this.handleHiltChange(i)}/>
-                
-                <AssetManager className ="Robe-Assets" title={"Robe:"} buttonCount={6} colorArray={RobeColors} onClick={(i) => this.handleRobeChange(i)}/>
+          <div className="Character-Background" style={{ background: "linear-gradient(90deg," + (this.state.backgroundColor) + " 0%, " + (this.state.backgroundColor) + " 100%)"}}>
+              <Character 
+                  bladeColor = {this.state.bladeColor}
+                  hiltColor = {this.state.hiltColor}
+                  robeColor = {this.state.robeColor}
+                  eyeColor = {this.state.eyeColor}
+                  skinColor = {this.state.skinColor}
+              />
+          </div> 
+        
+        <div className="Asset-container">
+        <button className="is-sith-button" style={{backgroundColor: this.state.backgroundColor, cursor: "pointer"}} onClick={() => this.handleFactionChange()}><div>{this.state.isSith ? "Sith" : "Jedi"}</div> </button>
 
-                <AssetManager className ="Eye-Assets" title={"Eyes:"} buttonCount={6} colorArray={EyeColors} onClick={(i) => this.handleEyeChange(i)}/>
+          <div className="Asset-manager-container">
 
-                <AssetManager className ="Skin-Assets" title={"Skin:"} buttonCount={6} colorArray={SkinColors} onClick={(i) => this.handleSkinChange(i)}/>
-               
-              </div>
-          </div>
+            <AssetManager className ="Blade-Assets" title={"Blade:"} buttonCount={6} colorArray={BladeColors} onClick={(i) => this.handleBladeChange(i)}/>
+
+            <AssetManager className ="Hilt-Assets" title={"Hilt:"} buttonCount={3} colorArray={HiltColors} onClick={(i) => this.handleHiltChange(i)}/>
+            
+            <AssetManager className ="Robe-Assets" title={"Robe:"} buttonCount={6} colorArray={RobeColors} onClick={(i) => this.handleRobeChange(i)}/>
+
+            <AssetManager className ="Eye-Assets" title={"Eyes:"} buttonCount={6} colorArray={EyeColors} onClick={(i) => this.handleEyeChange(i)}/>
+
+            <AssetManager className ="Skin-Assets" title={"Skin:"} buttonCount={6} colorArray={SkinColors} onClick={(i) => this.handleSkinChange(i)}/>
             
           </div>
-          
+          </div>
+    </div>
+      
+    </div>
+    
         );
         }
 

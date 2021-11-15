@@ -16,6 +16,7 @@
 
 .site-title{
     font-size: 3vw;
+    opacity: 0.85;
 }
 
 .navbar-container{
@@ -25,13 +26,27 @@
 
 .link + .link{
     margin-left: 20px;
+    opacity: 0.7;
 }
 
 .link{
    
     color: #FFF;
+   
 }
 
 .link:hover{
-    color: #AAA;
+    opacity: 1;
+    cursor: pointer;
+    position: relative;
+    animation: updown 3s linear infinite;
 }
+
+@keyframes updown{
+    0%, 100% {
+      bottom: 0px;
+    }
+    50% {
+      bottom: 5px;
+    }
+  }

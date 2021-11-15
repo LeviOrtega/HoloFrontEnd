@@ -45,4 +45,10 @@ export const SkinColors = [
     "#1902FF", // blue
 ]
 
+export const BackgroundColors = [
+    "#101093", // blue
+    "#390101", // red
+   
+]
+
 export default BladeColors

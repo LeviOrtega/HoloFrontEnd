@@ -10,13 +10,14 @@ class CharacterCreatePage extends React.Component {
 
   render() {
     return (
-      <div className="CharacterCreatePage" >
+      <div className="CharacterCreatePage"  >
         <CharacterCreate 
         bladeColor={BladeColors[this.getRandomInt(6)]}
         hiltColor={HiltColors[this.getRandomInt(3)]}
         robeColor={RobeColors[this.getRandomInt(6)]}
         eyeColor={EyeColors[this.getRandomInt(6)]}
         skinColor={SkinColors[this.getRandomInt(6)]}
+        isSith={(this.getRandomInt(2) === 1) ? true : false}
         />
 
       </div>

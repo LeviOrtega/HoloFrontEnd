@@ -1,60 +1,85 @@
+.Main-Container{
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1%;
+  font-size: 2vmin;
+  color: white;
+ 
+  
+  
+}
+
 .CharacterCreate {
   
  
-
-  background: linear-gradient(90deg, #262b44 0%, #262b44 100%);
+    width: fit-content;
+    block-size: fit-content;
+    height: fit-content;
+    background: linear-gradient(90deg, #262b44 0%, #262b44 100%);
     border-radius: 5%;
     border: white;
     border-style: solid;
-    width: 80%;
-    height: 90%;
-    display: grid;
-    
-    
+    display: flex;
+    flex-direction: row;
     gap: 5px;
     align-items: center;
     justify-content: left;
     padding:40px;
     
   }
+
   
   
   .Character-Background{
-    
-    background: linear-gradient(90deg, #390101 0%, #390101 100%);
-    border-radius: 5%;
-    border: white;
-    border-style: solid;
-  }
-  
-  .character{
-  
-    position: relative;
-    animation: updown 3s linear infinite;
-    
-  }
-  
-  .Main-Container{
-  
+   
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 1%;
-    font-size: 2vmin;
-    color: white;
+    border-radius: 5%;
+    border: white;
+    border-style: solid;
+    width:20vw;
     
     
   }
   
+  .character{
+    
+    width:100%;
+    position: relative;
+    animation: updown 2s linear infinite;
+    
+  }
+  
+ .Asset-container{
+   display:flex;
+   flex-direction: column;
+  
+ }
+  .is-sith-button{
+    align-self: flex-start;
+    font-family: 'SMW Text 2 NC', sans-serif;
+    
+    text-align: center;
+    font-size: auto;
+    color: white;
+    border-radius: 20%;
+    border-style: solid;
+    border-color: white;
+  }
   
   .Asset-manager-container{
-    align-self: start;
+    width:auto;
+    padding: 2px;
+    
     border-radius: 5%;
     border: white;
     border-style: solid;
     display: flex;
     flex-direction: column;
-    row-gap: 1vmax;
+    
    
    
   }
