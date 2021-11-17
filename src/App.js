@@ -10,10 +10,14 @@ import Main from './pages/Main';
 import About from './pages/About';
 
 
+
 class App extends React.Component {
+
+  
 
 
   render() {
+  
     return (
      
       <Router>

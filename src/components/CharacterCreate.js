@@ -4,6 +4,18 @@ import AssetManager from './AssetManager'
 import {BladeColors, HiltColors, RobeColors, EyeColors, SkinColors, BackgroundColors} from '../resources/Colors'
 import Character from '../resources/Character'
 
+import { firestore} from '../Firebase';
+import { doc, setDoc } from "firebase/firestore";
+
+
+
+function publish(){
+  let usr = doc(firestore, 'users/owner1')
+  const docData = {
+    char1: "updated"
+  };
+  setDoc(usr, docData);
+}
 
 
 class CharacterCreate extends React.Component {
@@ -67,7 +79,7 @@ class CharacterCreate extends React.Component {
           
 
       <div className="Main-Container">
-
+        <button onClick={() => publish()}>Publish </button>
         <div className="CharacterCreate" >
           
             

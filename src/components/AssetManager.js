@@ -38,7 +38,7 @@ class AssetManager extends React.Component{
 
     render() {
         return (
-                <div className="container">
+                <div className="container" >
                     
                     <h4 className="title">{this.props.title}</h4>
                     <div className="button-container">
