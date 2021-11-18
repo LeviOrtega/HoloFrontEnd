@@ -2,6 +2,7 @@
 import React from 'react';
 import {BladeColors, HiltColors, RobeColors, EyeColors, SkinColors} from '../resources/Colors';
 import CharacterCreate from '../components/CharacterCreate';
+import uuid from 'react-uuid'
 
 
 function getRandomInt(max) {
@@ -24,6 +25,7 @@ class CharacterCreatePage extends React.Component {
         eyeColor={EyeColors[getRandomInt(6)]}
         skinColor={SkinColors[getRandomInt(6)]}
         isSith={(getRandomInt(2) === 1) ? true : false}
+        uuid={uuid()}
         />
 
       </div>

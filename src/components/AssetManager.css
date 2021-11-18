@@ -11,9 +11,15 @@
 
 }
 
+#list li{
+  display: inline;
+  list-style-type: none;
+}
+
 .title{
+    font-size: 100%;
     text-align: left;
-    width: 10vmin;
+    width: 2vmin;
     
 }
 
@@ -32,16 +38,13 @@
  
     opacity: 1.5 ;
     cursor: pointer;
-
-    position: relative;
-    animation: updown 2s infinite;
 }
 
-@keyframes updown{
+/* @keyframes updown{
     0%, 100% {
       bottom: 1px;
     }
     50% {
       bottom: 0px;
     }
-  }
+  } */

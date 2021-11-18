@@ -31,9 +31,11 @@ class AssetManager extends React.Component{
     getButtons(){
         const buttons = [];
         for (let i = 0; i < this.props.buttonCount; i++){
-            buttons.push(renderColorButton(i, this.props))
-        }
+            buttons.push( <li  key={this.props.className + i}>{renderColorButton(i, this.props)}</li>)
+       };
+
         return buttons;
+
     }
 
     render() {
@@ -42,7 +44,7 @@ class AssetManager extends React.Component{
                     
                     <h4 className="title">{this.props.title}</h4>
                     <div className="button-container">
-                    {this.getButtons(this.props.buttonCount)}
+                     <ul id="list">{this.getButtons(this.props.buttonCount)}</ul>
                     </div>
                 </div>
         )

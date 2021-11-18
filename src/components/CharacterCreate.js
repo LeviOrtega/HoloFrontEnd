@@ -9,13 +9,7 @@ import { doc, setDoc } from "firebase/firestore";
 
 
 
-function publish(){
-  let usr = doc(firestore, 'users/owner1')
-  const docData = {
-    char1: "updated"
-  };
-  setDoc(usr, docData);
-}
+
 
 
 class CharacterCreate extends React.Component {
@@ -30,7 +24,27 @@ class CharacterCreate extends React.Component {
           skinColor: this.props.skinColor,
           isSith: this.props.isSith,
           backgroundColor: BackgroundColors[(this.props.isSith ? 1 : 0)],
+          uuid: this.props.uuid, 
       }
+    }
+
+    async publish(){
+     
+      let creation = await doc(firestore, 'creations/' + this.state.uuid)
+      const docData = {
+        bladeColor: this.state.bladeColor,
+        hiltColor: this.state.hiltColor,
+        skinColor: this.state.skinColor,
+        robeColor: this.state.robeColor,
+        eyeColor: this.state.eyeColor,
+        backgroundColor: this.state.backgroundColor,
+        isSith: this.state.isSith,
+        ownerID: "owner1"
+      };
+      await setDoc(creation, docData);
+
+     // let usr = await doc(firestore, 'users/' + this.state.ownerID)
+      
     }
     
       handleBladeChange(i){
@@ -79,7 +93,7 @@ class CharacterCreate extends React.Component {
           
 
       <div className="Main-Container">
-        <button onClick={() => publish()}>Publish </button>
+        <button onClick={() => this.publish()}> Publish </button>
         <div className="CharacterCreate" >
           
             
@@ -95,7 +109,6 @@ class CharacterCreate extends React.Component {
           </div> 
         
         <div className="Asset-container">
-        <button className="is-sith-button" style={{backgroundColor: this.state.backgroundColor, cursor: "pointer"}} onClick={() => this.handleFactionChange()}><div>{this.state.isSith ? "Sith" : "Jedi"}</div> </button>
 
           <div className="Asset-manager-container">
 
@@ -110,7 +123,9 @@ class CharacterCreate extends React.Component {
             <AssetManager className ="Skin-Assets" title={"Skin:"} buttonCount={6} colorArray={SkinColors} onClick={(i) => this.handleSkinChange(i)}/>
             
           </div>
-          </div>
+          <button className="is-sith-button" style={{backgroundColor: this.state.backgroundColor}} onClick={() => this.handleFactionChange()}><div>{this.state.isSith ? "Sith" : "Jedi"}</div> </button>
+
+        </div>
     </div>
       
     </div>

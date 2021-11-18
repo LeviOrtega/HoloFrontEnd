@@ -56,18 +56,23 @@
  .Asset-container{
    display:flex;
    flex-direction: column;
+   align-self: flex-start;
+   
   
  }
   .is-sith-button{
+    margin-top: 2%;
     align-self: flex-start;
     font-family: 'SMW Text 2 NC', sans-serif;
-    
     text-align: center;
     font-size: auto;
     color: white;
     border-radius: 20%;
     border-style: solid;
     border-color: white;
+  }
+  .is-sith-button:hover{
+    cursor: pointer;
   }
   
   .Asset-manager-container{

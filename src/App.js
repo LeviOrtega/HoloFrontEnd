@@ -8,6 +8,7 @@ import CharacterCreatePage from './pages/CharacterCreatePage';
 import Navbar from './Navbar';
 import Main from './pages/Main';
 import About from './pages/About';
+import Preview from './pages/Preview';
 
 
 
@@ -27,6 +28,9 @@ class App extends React.Component {
           <Route path="/" element={<Main />}/>
           <Route path="/character-create" element={<CharacterCreatePage />} />
           <Route path="/about" element={<About />} />
+          <Route path="/preview/:previewID"
+                 element={<Preview />}
+                 />
 
           
 
