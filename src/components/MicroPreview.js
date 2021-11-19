@@ -26,7 +26,7 @@ class MicroPreview extends React.Component{
 
     render(){
         return(
-            <div style={{backgroundColor: this.state.backgroundColor}}>
+            <div style={{backgroundColor: this.state.backgroundColor, borderRadius: "10%", border: "white", borderStyle:"solid"}}>
                 <Character 
                   bladeColor = {this.state.bladeColor}
                   hiltColor = {this.state.hiltColor}

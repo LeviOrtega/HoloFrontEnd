@@ -1,6 +1,7 @@
 .Main-Container{
   
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: 1%;
@@ -9,6 +10,24 @@
  
   
   
+}
+
+.publish{
+  background-color: black;
+  margin-bottom: 1%;
+  align-self: center;
+  padding:10px;
+  font-family: 'SMW Text 2 NC', sans-serif;
+  text-align: center;
+  font-size: auto;
+  color: white;
+  border-radius: 20%;
+  border-style: solid;
+  border-color: white;
+  
+}
+.publish:hover{
+  cursor: pointer;
 }
 
 .CharacterCreate {
@@ -71,6 +90,8 @@
     border-style: solid;
     border-color: white;
   }
+
+  
   .is-sith-button:hover{
     cursor: pointer;
   }

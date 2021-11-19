@@ -3,7 +3,7 @@ import './CharacterCreate.css'
 import AssetManager from './AssetManager'
 import {BladeColors, HiltColors, RobeColors, EyeColors, SkinColors, BackgroundColors} from '../resources/Colors'
 import Character from '../resources/Character'
-
+//import { Link } from 'react-router-dom'
 import { firestore} from '../Firebase';
 import { doc, setDoc } from "firebase/firestore";
 
@@ -94,8 +94,17 @@ class CharacterCreate extends React.Component {
           
 
       <div className="Main-Container">
-        <button onClick={() => this.publish()}> Publish </button>
+       
+       
+       <button className="publish" onClick={() => this.publish()}>
+         {/* <Link className="link-to-preview" to={"/preview/" + this.state.uuid} style={{textDecoration:"none"}}>  
+          Publish Creation
+        </Link>  */}
+        Publish Creation
+        </button>
+       
         <div className="CharacterCreate" >
+           
           
             
 
@@ -124,8 +133,9 @@ class CharacterCreate extends React.Component {
             <AssetManager className ="Skin-Assets" title={"Skin:"} buttonCount={6} colorArray={SkinColors} onClick={(i) => this.handleSkinChange(i)}/>
             
           </div>
+          
           <button className="is-sith-button" style={{backgroundColor: this.state.backgroundColor}} onClick={() => this.handleFactionChange()}><div>{this.state.isSith ? "Sith" : "Jedi"}</div> </button>
-
+ 
         </div>
     </div>
       

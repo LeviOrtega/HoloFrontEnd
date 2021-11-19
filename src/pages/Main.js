@@ -29,7 +29,7 @@ class Main extends React.Component{
             //console.log(doc.id, " => ", doc.data());
             this.setState({
                 microPreviewList: [...this.state.microPreviewList, 
-                <li key={doc.id} style={{listStyleType:"none", border: "white", borderStyle:"solid"}}>
+                <li key={doc.id} style={{listStyleType:"none"}}>
                     <Link className="link-to-preview" to={"/preview/" + doc.id} style={{textDecoration:"none"}}>  
                         <MicroPreview
                         bladeColor = {doc.data().bladeColor}
@@ -57,14 +57,17 @@ class Main extends React.Component{
             
     render() {
         return (
-        <div style={{}}>
+        <div style={{display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", padding: "10px"}}>
+        <h2 style={{color:"white"}}>Community Creations</h2>
         <div className="list-container" style ={{width: "90%"}}>
 
             <ul style={{
                 
                 display:"grid",
                 gridTemplateColumns:"1fr 1fr 1fr 1fr 1fr",
-                gap:"10px"
+                gap:"10px",
+                margin: "0",
+                padding: "0"
             }}
             
             
