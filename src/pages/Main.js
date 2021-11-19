@@ -60,11 +60,6 @@ class Main extends React.Component{
         <div style={{}}>
         <div className="list-container" style ={{width: "90%"}}>
 
-            {/* <button onClick={() => this.setState({
-            microPreviewList: [...this.state.microPreviewList, <li key=""><MicroPreview></MicroPreview></li>]
-        })} /> */}
-            {/* <h1 style={{textAlign:"center", color:"white"}}>Main Page</h1> */}
-
             <ul style={{
                 
                 display:"grid",

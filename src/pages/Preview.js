@@ -30,8 +30,8 @@ function Preview(){
                  setRobeColor(characterSnap.data().robeColor);
                  setSkinColor(characterSnap.data().skinColor);
             }
-            })
-     }, [previewID])
+            });
+     }, [previewID]);
 
         return(
            <div className="wrapper" style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
