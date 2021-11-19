@@ -1,50 +1,64 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useParams } from "react-router";
 import { doc, getDoc } from "firebase/firestore";
 import {firestore} from '../Firebase';
-import Character from '../resources/Character'
+import Character from '../resources/Character';
+import { useEffect } from "react/cjs/react.development";
+import { useState } from "react";
 
 
 
-async function getCharacterInfo(previewID){
 
 
-    getDoc(doc(firestore, 'creations', previewID)).then(characterSnap => {
-
-        if (characterSnap.exists()){
-            console.log("Document data:", characterSnap.data());
-             return characterSnap;
-            
-        }
-    })
-     
-}
-
-
-function getChatacter(bladeColor){
-    return (
-        <Character>
-            bladeColor={bladeColor}
-        </Character>
-    )
-}
 
 
 function Preview(){
-    const { previewID } = useParams();
 
-   
+    const [bladeColor, setBladeColor] = useState("#000000");
+    const [hiltColor, setHiltColor] = useState("#000000");
+    const [eyeColor, setEyeColor] = useState("#000000");
+    const [robeColor, setRobeColor] = useState("#000000");
+    const [skinColor, setSkinColor] = useState("#000000");
 
-    useEffect(() => {
-        let c = getCharacterInfo(previewID)
-        getChatacter(c.bladeColor)
-    })
-        
-        return(
-            <div>{getChatacter("#FFFFFF")}</div>
-        )
+    let {previewID} = useParams();
     
 
+    useEffect(() => {
+        getDoc(doc(firestore, 'creations', previewID)).then(characterSnap => {
+
+            if (characterSnap.exists()){
+                console.log("Document data:", characterSnap.data());
+                 setBladeColor(characterSnap.data().bladeColor);
+                 setHiltColor(characterSnap.data().hiltColor);
+                 setEyeColor(characterSnap.data().eyeColor);
+                 setRobeColor(characterSnap.data().robeColor);
+                 setSkinColor(characterSnap.data().skinColor);
+            }
+            })
+     })
+
+    
+
+   
+   
+  
+        
+        return(
+            
+            <div style={{display:"flex", justifyContent:"center", alignItems:"center", width: "50%"}}>
+                <Character 
+                    
+                    bladeColor = { bladeColor}
+                    hiltColor = { hiltColor}
+                    robeColor = { robeColor}
+                    eyeColor = { eyeColor}
+                    skinColor = { skinColor}
+                />
+                 
+            </div>
+        )
+    
+        
 }
 
-export default Preview
+export default Preview;
