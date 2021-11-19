@@ -8,10 +8,6 @@ import { useState } from "react";
 
 
 
-
-
-
-
 function Preview(){
 
     const [bladeColor, setBladeColor] = useState("#000000");
@@ -35,17 +31,11 @@ function Preview(){
                  setSkinColor(characterSnap.data().skinColor);
             }
             })
-     })
+     }, [previewID])
 
-    
-
-   
-   
-  
-        
         return(
-            
-            <div style={{display:"flex", justifyContent:"center", alignItems:"center", width: "50%"}}>
+           <div className="wrapper" style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
+            <div style={{width: "50%"}}>
                 <Character 
                     
                     bladeColor = { bladeColor}
@@ -56,6 +46,7 @@ function Preview(){
                 />
                  
             </div>
+            </div> 
         )
     
         

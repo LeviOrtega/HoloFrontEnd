@@ -39,7 +39,8 @@ class CharacterCreate extends React.Component {
         eyeColor: this.state.eyeColor,
         backgroundColor: this.state.backgroundColor,
         isSith: this.state.isSith,
-        ownerID: "owner1"
+        ownerID: "owner1",
+        dateCreated: new Date(),
       };
       await setDoc(creation, docData);
 
