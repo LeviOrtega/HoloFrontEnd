@@ -21,12 +21,14 @@ function Preview(){
 
     useEffect(() => {
         getDoc(doc(firestore, 'creations', previewID)).then(characterSnap => {
+            
                 console.log("Document data:", characterSnap.data());
                  setBladeColor(characterSnap.data().bladeColor);
                  setHiltColor(characterSnap.data().hiltColor);
                  setEyeColor(characterSnap.data().eyeColor);
                  setRobeColor(characterSnap.data().robeColor);
                  setSkinColor(characterSnap.data().skinColor);
+            
             });
      }, [previewID]);
 
