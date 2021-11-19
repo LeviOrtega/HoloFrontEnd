@@ -3,8 +3,8 @@ import { useParams } from "react-router";
 import { doc, getDoc } from "firebase/firestore";
 import {firestore} from '../Firebase';
 import Character from '../resources/Character';
-import { useEffect } from "react/cjs/react.development";
 import { useState } from "react";
+
 
 
 
@@ -19,16 +19,16 @@ function Preview(){
     let {previewID} = useParams();
     
 
-    useEffect(() => {
+    React.useEffect(() => {
         getDoc(doc(firestore, 'creations', previewID)).then(characterSnap => {
-            
+            if (characterSnap.exists()){
                 console.log("Document data:", characterSnap.data());
                  setBladeColor(characterSnap.data().bladeColor);
                  setHiltColor(characterSnap.data().hiltColor);
                  setEyeColor(characterSnap.data().eyeColor);
                  setRobeColor(characterSnap.data().robeColor);
                  setSkinColor(characterSnap.data().skinColor);
-            
+            }
             });
      }, [previewID]);
 
