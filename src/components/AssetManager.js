@@ -2,14 +2,12 @@ import React from 'react';
 import './AssetManager.css'
 
 function ColorButton(props){
-    let c = props.color
     return (
         
         <button className="button"
         onClick={() => props.onClick()}
         style={{ 
-            background: c,
-           
+            background: props.color
         }}
         
         ></button>

@@ -47,6 +47,7 @@ class CharacterCreate extends React.Component {
      // let usr = await doc(firestore, 'users/' + this.state.ownerID)
       
     }
+
     
       handleBladeChange(i){
         this.setState({
@@ -93,22 +94,17 @@ class CharacterCreate extends React.Component {
         return (
           
 
-      <div className="Main-Container">
+      <div className="main-container">
        
        
        <button className="publish" onClick={() => this.publish()}>
-         {/* <Link className="link-to-preview" to={"/preview/" + this.state.uuid} style={{textDecoration:"none"}}>  
-          Publish Creation
-        </Link>  */}
+         
         Publish Creation
         </button>
        
-        <div className="CharacterCreate" >
-           
-          
-            
-
-          <div className="Character-Background" style={{ background: "linear-gradient(90deg," + (this.state.backgroundColor) + " 0%, " + (this.state.backgroundColor) + " 100%)"}}>
+        <div className="character-create" >
+          <div className="character-background" style={{ background: "linear-gradient(90deg," + (this.state.backgroundColor) + " 0%, " + (this.state.backgroundColor) + " 100%)"}}>
+              <div className="character-hover-wrapper">
               <Character 
                   bladeColor = {this.state.bladeColor}
                   hiltColor = {this.state.hiltColor}
@@ -116,11 +112,12 @@ class CharacterCreate extends React.Component {
                   eyeColor = {this.state.eyeColor}
                   skinColor = {this.state.skinColor}
               />
+              </div>
           </div> 
         
-        <div className="Asset-container">
+        <div className="asset-container">
 
-          <div className="Asset-manager-container">
+          <div className="asset-manager-container">
 
             <AssetManager className ="Blade-Assets" title={"Blade:"} buttonCount={6} colorArray={BladeColors} onClick={(i) => this.handleBladeChange(i)}/>
 

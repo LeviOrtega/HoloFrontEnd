@@ -1,4 +1,4 @@
-.Main-Container{
+.main-container{
   
   display: flex;
   flex-direction: column;
@@ -30,7 +30,7 @@
   cursor: pointer;
 }
 
-.CharacterCreate {
+.character-create {
   
  
     width: fit-content;
@@ -51,7 +51,7 @@
 
   
   
-  .Character-Background{
+  .character-background{
    
     display: flex;
     align-items: center;
@@ -64,7 +64,7 @@
     
   }
   
-  .character{
+  .character-hover-wrapper{
     
     width:100%;
     position: relative;
@@ -72,7 +72,7 @@
     
   }
   
- .Asset-container{
+ .asset-container{
    display:flex;
    flex-direction: column;
    align-self: flex-start;
@@ -96,10 +96,9 @@
     cursor: pointer;
   }
   
-  .Asset-manager-container{
+  .asset-manager-container{
     width:auto;
     padding: 2px;
-    
     border-radius: 5%;
     border: white;
     border-style: solid;
@@ -121,10 +120,10 @@
   
   @keyframes updown{
     0%, 100% {
-      bottom: 10px;
+      bottom: 1vw;
     }
     50% {
-      bottom: 0px;
+      bottom: 0vw;
     }
   }
   

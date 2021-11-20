@@ -25,8 +25,6 @@ class Main extends React.Component{
         const querySnap = await getDocs(q);
 
         querySnap.forEach((doc) => {
-            // doc.data() is never undefined for query doc snapshots
-            //console.log(doc.id, " => ", doc.data());
             this.setState({
                 microPreviewList: [...this.state.microPreviewList, 
                 <li key={doc.id} style={{listStyleType:"none"}}>
@@ -64,7 +62,7 @@ class Main extends React.Component{
             <ul style={{
                 
                 display:"grid",
-                gridTemplateColumns:"1fr 1fr 1fr 1fr 1fr",
+                gridTemplateColumns:"repeat(5, 1fr)",
                 gap:"10px",
                 margin: "0",
                 padding: "0"

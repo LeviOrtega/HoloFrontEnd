@@ -16,7 +16,7 @@ class CharacterCreatePage extends React.Component {
 
   render() {
     return (
-      <div className="CharacterCreatePage"  >
+      <div className="character-create-page"  >
         
         <CharacterCreate 
         bladeColor={BladeColors[getRandomInt(6)]}

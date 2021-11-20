@@ -1,54 +1,31 @@
 import React from "react";
 import { useParams } from "react-router";
-import { doc, getDoc } from "firebase/firestore";
-import {firestore} from '../Firebase';
-import Character from '../resources/Character';
-import { useState } from "react";
+import PreviewCharacter from "../components/PreviewCharacter";
+
 
 
 
 
 function Preview(){
 
-    const [bladeColor, setBladeColor] = useState("#000000");
-    const [hiltColor, setHiltColor] = useState("#000000");
-    const [eyeColor, setEyeColor] = useState("#000000");
-    const [robeColor, setRobeColor] = useState("#000000");
-    const [skinColor, setSkinColor] = useState("#000000");
+    
 
     let {previewID} = useParams();
     
 
-    React.useEffect(() => {
-        getDoc(doc(firestore, 'creations', previewID)).then(characterSnap => {
-            if (characterSnap.exists()){
-                console.log("Document data:", characterSnap.data());
-                 setBladeColor(characterSnap.data().bladeColor);
-                 setHiltColor(characterSnap.data().hiltColor);
-                 setEyeColor(characterSnap.data().eyeColor);
-                 setRobeColor(characterSnap.data().robeColor);
-                 setSkinColor(characterSnap.data().skinColor);
-            }
-            });
-     }, [previewID]);
+   
 
         return(
-           <div className="wrapper" style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
-            <div style={{width: "50%"}}>
-                <Character 
-                    
-                    bladeColor = { bladeColor}
-                    hiltColor = { hiltColor}
-                    robeColor = { robeColor}
-                    eyeColor = { eyeColor}
-                    skinColor = { skinColor}
-                />
-                 
-            </div>
-            </div> 
+           <div className="preview-wrapper" style={{display:"flex", justifyContent:"center", alignItems:"center"}}>
+            
+                <PreviewCharacter previewID={previewID} />
+           
+          </div> 
         )
     
         
 }
+
+
 
 export default Preview;
