@@ -38,6 +38,7 @@ class Main extends React.Component{
                         isSith = {doc.data().isSith}
                         backgroundColor = {doc.data().backgroundColor}
                         uuid = {doc.id}
+                        charTitle = {doc.data().charTitle}
                         />
                     </Link>
                 </li>]

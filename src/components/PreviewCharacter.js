@@ -22,7 +22,8 @@ class PreviewCharacter extends React.Component{
 
                     this.setState({
                      character: 
-                     <div className="preview-character-container" style={{width: "20%", backgroundColor: characterSnap.data().backgroundColor, border: "white", borderStyle: "solid", borderRadius: "10%", marginTop: "1%"}}>
+                     <div className="preview-wrapper" style={{display:"flex", flexDirection:"column"}}>
+                     <div className="preview-character-container" style={{backgroundColor: characterSnap.data().backgroundColor, border: "white", borderStyle: "solid", borderRadius: "10%", marginTop: "1%"}}>
                 
                         <Character 
                         bladeColor = {characterSnap.data().bladeColor}
@@ -31,7 +32,22 @@ class PreviewCharacter extends React.Component{
                         robeColor = {characterSnap.data().robeColor}
                         skinColor = {characterSnap.data().skinColor}
                         />
-                     </div>,
+                     </div>
+                        <div className="title-wrapper" 
+                        style={{alignSelf:"center", 
+                        textAlign:"center",  
+                        marginTop:"1%",  
+                        background: "linear-gradient(90deg, " + characterSnap.data().backgroundColor + " 0%, " + characterSnap.data().backgroundColor +" 100%)", 
+                        width:"80%", 
+                        border:"white", 
+                        borderStyle:"solid", 
+                        borderRadius:"15%"}}>
+    
+                        <label style={{color: "white"}}>
+                        {characterSnap.data().charTitle}
+                        </label>
+                    </div>
+                 </div>,
                     
                     });
                 }
@@ -41,7 +57,9 @@ class PreviewCharacter extends React.Component{
 
         render(){
             return(
-                    this.state.character 
+                    <div style={{width: "20%"}}>
+                        {this.state.character}
+                    </div>
             )
         }
 

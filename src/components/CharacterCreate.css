@@ -14,7 +14,7 @@
 
 .publish{
   background-color: black;
-  margin-bottom: 1%;
+  margin-top: 1%;
   align-self: center;
   padding:10px;
   font-family: 'SMW Text 2 NC', sans-serif;
@@ -30,23 +30,29 @@
   cursor: pointer;
 }
 
+.character-title-wrapper{
+
+  
+  width: fit-content;
+  height: fit-content;
+  background: linear-gradient(90deg, #262b44 0%, #262b44 100%);
+  border-radius: 5%;
+  border: white;
+  border-style: solid;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  /* justify-content: left; */
+  padding:40px;
+}
+
 .character-create {
   
- 
-    width: fit-content;
-    block-size: fit-content;
-    height: fit-content;
-    background: linear-gradient(90deg, #262b44 0%, #262b44 100%);
-    border-radius: 5%;
-    border: white;
-    border-style: solid;
+    
     display: flex;
     flex-direction: row;
     gap: 5px;
-    align-items: center;
-    justify-content: left;
-    padding:40px;
-    
+
   }
 
   
@@ -71,6 +77,20 @@
     animation: updown 2s linear infinite;
     
   }
+
+  input[type=text]{
+    
+    padding:2px;
+    border:white;
+    border-radius: 5%;
+    border-style: solid;
+    font-family: 'SMW Text 2 NC', sans-serif;
+    color:white;
+    border-radius: 4px;
+    background-color: #262b44;
+    resize: none;
+    
+  }
   
  .asset-container{
    display:flex;
@@ -80,12 +100,14 @@
   
  }
   .is-sith-button{
-    margin-top: 2%;
-    align-self: flex-start;
+
+   
     font-family: 'SMW Text 2 NC', sans-serif;
     text-align: center;
     font-size: auto;
     color: white;
+    justify-self: center;
+    align-self: center;
     border-radius: 20%;
     border-style: solid;
     border-color: white;
@@ -120,10 +142,10 @@
   
   @keyframes updown{
     0%, 100% {
-      bottom: 1vw;
+      bottom: 0;
     }
     50% {
-      bottom: 0vw;
+      bottom: 10px;
     }
   }
   

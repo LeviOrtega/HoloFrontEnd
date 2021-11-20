@@ -1,0 +1,13 @@
+.micro-char-wrapper:hover{
+    position: relative;
+    animation: updown 2s linear infinite;
+}
+
+@keyframes updown{
+    0%, 100% {
+      bottom: 0;
+    }
+    50% {
+      bottom: 10px;
+    }
+  }

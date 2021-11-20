@@ -25,7 +25,10 @@ class CharacterCreate extends React.Component {
           isSith: this.props.isSith,
           backgroundColor: BackgroundColors[(this.props.isSith ? 1 : 0)],
           uuid: this.props.uuid, 
+          charTitle: this.props.charTitle,
       }
+
+      this.handleCharTitleChange = this.handleCharTitleChange.bind(this);
     }
 
     async publish(){
@@ -41,6 +44,7 @@ class CharacterCreate extends React.Component {
         isSith: this.state.isSith,
         ownerID: "owner1",
         dateCreated: new Date(),
+        charTitle: this.state.charTitle
       };
       await setDoc(creation, docData);
 
@@ -88,6 +92,12 @@ class CharacterCreate extends React.Component {
           backgroundColor: BackgroundColors[!this.state.isSith ? 1 : 0]
         })
       }
+
+      handleCharTitleChange(e){
+        this.setState({
+          charTitle: e.target.value
+        })
+      }
       
       
       render() {
@@ -97,49 +107,59 @@ class CharacterCreate extends React.Component {
       <div className="main-container">
        
        
-       <button className="publish" onClick={() => this.publish()}>
-         
-        Publish Creation
-        </button>
        
-        <div className="character-create" >
-          <div className="character-background" style={{ background: "linear-gradient(90deg," + (this.state.backgroundColor) + " 0%, " + (this.state.backgroundColor) + " 100%)"}}>
-              <div className="character-hover-wrapper">
-              <Character 
-                  bladeColor = {this.state.bladeColor}
-                  hiltColor = {this.state.hiltColor}
-                  robeColor = {this.state.robeColor}
-                  eyeColor = {this.state.eyeColor}
-                  skinColor = {this.state.skinColor}
-              />
-              </div>
-          </div> 
-        
-        <div className="asset-container">
+       
+       <div className="character-title-wrapper">
 
-          <div className="asset-manager-container">
-
-            <AssetManager className ="Blade-Assets" title={"Blade:"} buttonCount={6} colorArray={BladeColors} onClick={(i) => this.handleBladeChange(i)}/>
-
-            <AssetManager className ="Hilt-Assets" title={"Hilt:"} buttonCount={3} colorArray={HiltColors} onClick={(i) => this.handleHiltChange(i)}/>
-            
-            <AssetManager className ="Robe-Assets" title={"Robe:"} buttonCount={6} colorArray={RobeColors} onClick={(i) => this.handleRobeChange(i)}/>
-
-            <AssetManager className ="Eye-Assets" title={"Eyes:"} buttonCount={6} colorArray={EyeColors} onClick={(i) => this.handleEyeChange(i)}/>
-
-            <AssetManager className ="Skin-Assets" title={"Skin:"} buttonCount={6} colorArray={SkinColors} onClick={(i) => this.handleSkinChange(i)}/>
+          <div className="title-wrapper" style={{display: 'flex', flexDirection:'row', gap:"5px"}}>
+              <button className="is-sith-button" style={{backgroundColor: this.state.backgroundColor}} onClick={() => this.handleFactionChange()}><div>{this.state.isSith ? "Sith" : "Jedi"}</div> </button>
+              <input type="text" placeholder={this.state.charTitle} onChange={this.handleCharTitleChange} />
             
           </div>
+
+       
+
+          <div className="character-create" >
+            
+
+            <div className="character-background" style={{ background: "linear-gradient(90deg," + (this.state.backgroundColor) + " 0%, " + (this.state.backgroundColor) + " 100%)"}}>
+                <div className="character-hover-wrapper">
+                <Character 
+                    bladeColor = {this.state.bladeColor}
+                    hiltColor = {this.state.hiltColor}
+                    robeColor = {this.state.robeColor}
+                    eyeColor = {this.state.eyeColor}
+                    skinColor = {this.state.skinColor}
+                />
+                </div>
+            </div> 
           
-          <button className="is-sith-button" style={{backgroundColor: this.state.backgroundColor}} onClick={() => this.handleFactionChange()}><div>{this.state.isSith ? "Sith" : "Jedi"}</div> </button>
- 
+            <div className="asset-container">
+
+              <div className="asset-manager-container">
+
+                <AssetManager className ="Blade-Assets" title={"Blade:"} buttonCount={6} colorArray={BladeColors} onClick={(i) => this.handleBladeChange(i)}/>
+
+                <AssetManager className ="Hilt-Assets" title={"Hilt:"} buttonCount={3} colorArray={HiltColors} onClick={(i) => this.handleHiltChange(i)}/>
+                
+                <AssetManager className ="Robe-Assets" title={"Robe:"} buttonCount={6} colorArray={RobeColors} onClick={(i) => this.handleRobeChange(i)}/>
+
+                <AssetManager className ="Eye-Assets" title={"Eyes:"} buttonCount={6} colorArray={EyeColors} onClick={(i) => this.handleEyeChange(i)}/>
+
+                <AssetManager className ="Skin-Assets" title={"Skin:"} buttonCount={6} colorArray={SkinColors} onClick={(i) => this.handleSkinChange(i)}/>
+                
+              </div>
+              
+    
+              </div>
+
+            </div>
         </div>
-    </div>
-      
+        <button className="publish" onClick={() => this.publish()}>Publish Creation</button>
     </div>
     
         );
-        }
+    }
 
 
 

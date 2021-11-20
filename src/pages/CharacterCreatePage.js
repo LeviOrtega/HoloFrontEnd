@@ -26,6 +26,7 @@ class CharacterCreatePage extends React.Component {
         skinColor={SkinColors[getRandomInt(6)]}
         isSith={(getRandomInt(2) === 1) ? true : false}
         uuid={uuid()}
+        charTitle={"Character Title"}
         />
 
       </div>
