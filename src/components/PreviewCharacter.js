@@ -2,6 +2,7 @@ import React from "react";
 import { doc, getDoc } from "firebase/firestore";
 import { firestore } from "../Firebase";
 import Character from "../resources/Character";
+import './PreviewCharacter.css'
 
 class PreviewCharacter extends React.Component {
   constructor(props) {
@@ -13,14 +14,6 @@ class PreviewCharacter extends React.Component {
     };
   }
 
-  // getResumeFields(rFields){
-  //   const fields = []
-
-  //   for(let i = 0; i < rFields.length; i++){
-  //     fields.push(
-  //       <
-  //     )
-  //   }
 
   componentDidMount() {
     getDoc(doc(firestore, "creations", this.state.previewID)).then(
@@ -32,7 +25,7 @@ class PreviewCharacter extends React.Component {
             character: (
               <div
                 className="preview-wrapper"
-                style={{ display: "flex", flexDirection: "column" }}
+                style={{ display: "flex", flexDirection: "column"}}
               >
                 <div
                   className="title-wrapper"
@@ -46,10 +39,12 @@ class PreviewCharacter extends React.Component {
                       " 0%, " +
                       characterSnap.data().backgroundColor +
                       " 100%)",
-                    width: "80%",
+                    width: "auto",
                     border: "white",
                     borderStyle: "solid",
                     borderRadius: "15%",
+                    fontSize:"1.5vw",
+                    padding:"10px"
                   }}
                 >
                   <label style={{ color: "white" }}>
@@ -82,8 +77,37 @@ class PreviewCharacter extends React.Component {
 
             resumeField: (
               <div>
+                <h2 style={{textAlign:"center", color:"white"}}>Contact Info</h2>
+                <form style={{ textAlign: "center"}}>
+                 <div style={{display: "flex", flexDirection: "row"}}>
+                  <input
+                    className="preview-text-field"
+                    type="text"
+                    name="real-name"
+                    value={characterSnap.data().realName}
+                    style={{ textAlign: "center", width: "auto" }}
+                  />
+                  <input
+                    className="preview-text-field"
+                    type="text"
+                    name="contact-info"
+                    value={characterSnap.data().contactInfo}
+                    style={{ textAlign: "center", width: "auto" }}
+                  />
+                  <input
+                    className="preview-text-field"
+                    type="text"
+                    name="website"
+                    value={characterSnap.data().website}
+                    style={{ textAlign: "center", width: "auto" }}
+                  />
+                  </div>
+        
+                </form>
+
+                
                 <h2 style={{textAlign:"center", color:"white"}}>Resume Info</h2>
-                <form>
+                <form style={{display:"flex", flexDirection:"column"}}>
                   {characterSnap.data().formValues.map((element, index) => (
                     <div
                       className="form-inline"
@@ -92,10 +116,11 @@ class PreviewCharacter extends React.Component {
                         display: "flex",
                         flexDirection: "column",
                         justifyContent: "flex-start",
+      
                       }}
                     >
                       <input
-                        className="char-title"
+                        className="preview-text-field"
                         placeholder={"Title"}
                         type="text"
                         name="desc"
@@ -104,44 +129,21 @@ class PreviewCharacter extends React.Component {
                           textAlign: "center",
                           width: "50%",
                           alignSelf: "center",
+                          
                         }}
                       />
 
                       <textarea
-                        className="char-title"
+                        className="preview-text-field"
                         type="text"
                         name="detail"
                         value={element.detail || ""}
-                        style={{ height: "200px", resize: "none" }}
+                        style={{ height: "200px", resize: "none"}}
+                        
                       />
                     </div>
                   ))}
                 </form>
-                <h3 style={{textAlign:"center", color:"white"}}>Contact Info</h3>
-                <form style={{ textAlign: "center" }}>
-                  <input
-                    className="char-title"
-                    type="text"
-                    name="real-name"
-                    value={characterSnap.data().realName}
-                    style={{ textAlign: "center", width: "50%" }}
-                  />
-                  <input
-                    className="char-title"
-                    type="text"
-                    name="contact-info"
-                    value={characterSnap.data().contactInfo}
-                    style={{ textAlign: "center", width: "80%" }}
-                  />
-                  <input
-                    className="char-title"
-                    type="text"
-                    name="website"
-                    value={characterSnap.data().website}
-                    style={{ textAlign: "center", width: "100%" }}
-                  />
-                </form>
-
                 
               </div>
             ),

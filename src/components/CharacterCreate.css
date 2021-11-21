@@ -8,8 +8,27 @@
   color: white;
 }
 
+.button-a-r{
+  border-radius: 20%;
+  border: transparent;
+  border-style: solid;
+  color:white;
+  font-size: 1.2vw;
+  text-align: center;
+  width: 2vw;
+  height: 2vw;
+  margin: 1px;
+  
+  background: #262b44;
+}
+.button-a-r:hover{
+  border:white;
+  border-style: solid;
+  cursor: pointer;
+}
+
 .publish {
-  background-color: black;
+  background: #111111;
   margin-top: 1%;
   align-self: center;
   text-align: center;
@@ -23,10 +42,12 @@
   border-color: white;
 }
 .publish:hover {
+  background: white;
+  color:#111111;
   cursor: pointer;
 }
 
-.character-title-wrapper {
+.character-creation-wrapper {
   width: fit-content;
   height: fit-content;
   background: linear-gradient(90deg, #262b44 0%, #262b44 100%);
@@ -63,17 +84,20 @@
 }
 
 .char-title {
-  padding: 5px;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+ 
   border: white;
-  border-radius: 5%;
+  border-radius: 15%;
   border-style: solid;
   font-family: "SMW Text 2 NC", sans-serif;
   color: white;
-  border-radius: 4px;
   background-color: #262b44;
   resize: none;
   outline: none !important;
-  caret-color: transparent;
+ 
+  
 }
 
 
@@ -84,18 +108,25 @@
   align-self: flex-start;
 }
 .is-sith-button {
+  position:absolute;
+  margin-top: 0.5%;
+  margin-right: 15%;
   font-family: "SMW Text 2 NC", sans-serif;
   text-align: center;
-  font-size: auto;
+  background: transparent;
+  font-size: 1vw;
   color: white;
   justify-self: center;
-  align-self: center;
+  align-self: flex-start;
   border-radius: 20%;
   border-style: solid;
   border-color: white;
+  opacity: 0.9;
+  z-index: 999;
 }
 
 .is-sith-button:hover {
+  opacity: 1.0;
   cursor: pointer;
 }
 

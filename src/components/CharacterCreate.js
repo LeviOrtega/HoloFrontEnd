@@ -170,26 +170,18 @@ class CharacterCreate extends React.Component {
   render() {
     return (
       <div className="main-container">
-        <h1 style={{ textAlign: "center" }}>Character Creation</h1>
-        <div className="character-title-wrapper">
-          <div
-            className="title-wrapper"
-            style={{ display: "flex", flexDirection: "row", gap: "5px" }}
-          >
-            <button
-              className="is-sith-button"
-              style={{ backgroundColor: this.state.backgroundColor }}
-              onClick={() => this.handleFactionChange()}
-            >
-              <div>{this.state.isSith ? "Sith" : "Jedi"}</div>{" "}
-            </button>
+        {/* <h1 style={{ textAlign: "center" }}>Character Creation</h1> */}
+        <div className="title-wrapper" style={{ alignSelf: "center" }}>
             <input
               className="char-title"
               type="text"
               placeholder={this.state.charTitle}
               onChange={this.handleCharTitleChange}
+              style={{ fontSize: "1.5vw", textAlign: "center", marginBottom:"20px"}}
             />
           </div>
+        <div className="character-creation-wrapper">
+          
 
           <div className="character-create">
             <div
@@ -203,6 +195,13 @@ class CharacterCreate extends React.Component {
                   " 100%)",
               }}
             >
+               <button
+              className="is-sith-button"
+              // style={{ backgroundColor: this.state.backgroundColor }}
+              onClick={() => this.handleFactionChange()}
+            >
+              <div>{this.state.isSith ? "Sith" : "Jedi"}</div>{" "}
+            </button>
               <div className="character-hover-wrapper">
                 <Character
                   bladeColor={this.state.bladeColor}
@@ -286,7 +285,7 @@ class CharacterCreate extends React.Component {
                   onChange={(e) => this.handleFormChange(index, e)}
                   style={{
                     textAlign: "center",
-                    width: "50%",
+                    width: "80%",
                     alignSelf: "center",
                   }}
                 />
@@ -298,14 +297,14 @@ class CharacterCreate extends React.Component {
                   name="detail"
                   value={element.detail || ""}
                   onChange={(e) => this.handleFormChange(index, e)}
-                  style={{ height: "200px", resize: "none" }}
+                  style={{width:"150%", height: "200px", resize: "none", padding: "20px", alignSelf:"center"}}
                 />
               </div>
             ))}
 
-            <div className="button-section">
+            <div className="add-remove-buttons" style={{display:"flex", flexDirection:"row", alignItems:"center", justifyContent: "center"}}>
               <button
-                className="button add"
+                className="button-a-r"
                 type="button"
                 onClick={() => this.addFormFields()}
               >
@@ -314,7 +313,7 @@ class CharacterCreate extends React.Component {
 
               <button
                 type="button"
-                className="button remove"
+                className="button-a-r"
                 onClick={() =>
                   this.removeFormFields(this.state.formValues.length - 1)
                 }
@@ -326,27 +325,35 @@ class CharacterCreate extends React.Component {
 
           <h3 style={{ textAlign: "center" }}>Contact Info</h3>
 
-          <form style={{ textAlign: "center" }}>
+          <form
+            style={{
+              textAlign: "center",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             <input
-              className="char-title"
-              placeholder={"Real Name"}
+              className="real-name char-title"
+              placeholder={"Full Name"}
               type="text"
               name="real-name"
               value={this.state.realName || ""}
               onChange={(e) => this.handleRealNameChange(e)}
-              style={{ textAlign: "center", width: "50%" }}
+              style={{ textAlign: "center", width: "80%" }}
             />
             <input
-              className="char-title"
-              placeholder={"Contact Info"}
+              className="contact-info char-title"
+              placeholder={"Phone #, Email, etc."}
               type="text"
               name="contact-info"
               value={this.state.contactInfo || ""}
               onChange={(e) => this.handleContactChange(e)}
-              style={{ textAlign: "center", width: "80%" }}
+              style={{ textAlign: "center", width: "90%" }}
             />
             <input
-              className="char-title"
+              className="website char-title"
               placeholder={"LinkedIn, Github, etc."}
               type="text"
               name="website"

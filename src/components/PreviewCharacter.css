@@ -1,0 +1,14 @@
+.preview-text-field{
+  padding: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border: white;
+  border-radius: 5%;
+  border-style: solid;
+  font-family: "SMW Text 2 NC", sans-serif;
+  color: white;
+  background-color: #262b44;
+  resize: none;
+  outline: none !important;
+  caret-color: transparent;
+}
