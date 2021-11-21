@@ -12,6 +12,7 @@
   background-color: black;
   margin-top: 1%;
   align-self: center;
+  text-align: center;
   padding: 10px;
   font-family: "SMW Text 2 NC", sans-serif;
   text-align: center;
@@ -74,6 +75,8 @@
   outline: none !important;
   caret-color: transparent;
 }
+
+
 
 .asset-container {
   display: flex;

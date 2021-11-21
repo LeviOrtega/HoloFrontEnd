@@ -10,7 +10,6 @@ import {
   BackgroundColors,
 } from "../resources/Colors";
 import Character from "../resources/Character";
-//import { Link } from 'react-router-dom'
 import { firestore } from "../Firebase";
 import { doc, setDoc } from "firebase/firestore";
 
@@ -25,32 +24,78 @@ class CharacterCreate extends React.Component {
       skinColor: this.props.skinColor,
       isSith: this.props.isSith,
       backgroundColor: BackgroundColors[this.props.isSith ? 1 : 0],
+      ownerID: this.props.ownerID,
       uuid: this.props.uuid,
       charTitle: this.props.charTitle,
-      formValues: [{ desc: "", detail: "" }],
+      formValues: this.props.formValues,
+      realName: this.props.realName,
+      contactInfo: this.props.contactInfo,
+      website: this.props.website,
     };
 
     this.handleCharTitleChange = this.handleCharTitleChange.bind(this);
   }
 
+  checkNoFormEmpty() {
+    if (
+      this.state.realName === "" ||
+      this.state.contactInfo === "" ||
+      this.state.website === ""
+    )
+      return false;
+
+    for (let i = 0; i < this.state.formValues.length; i++) {
+      if (
+        this.state.formValues[i]["desc"] === "" ||
+        this.state.formValues[i]["detail"] === ""
+      )
+        return false;
+    }
+
+    return true;
+  }
+
   async publish() {
-    let creation = await doc(firestore, "creations/" + this.state.uuid);
-    const docData = {
-      bladeColor: this.state.bladeColor,
-      hiltColor: this.state.hiltColor,
-      skinColor: this.state.skinColor,
-      robeColor: this.state.robeColor,
-      eyeColor: this.state.eyeColor,
-      backgroundColor: this.state.backgroundColor,
-      isSith: this.state.isSith,
-      ownerID: "owner1",
-      dateCreated: new Date(),
-      charTitle: this.state.charTitle,
-      formValues: this.state.formValues,
-    };
-    await setDoc(creation, docData);
+    if (this.checkNoFormEmpty()) {
+      let creation = await doc(firestore, "creations/" + this.state.uuid);
+      const docData = {
+        bladeColor: this.state.bladeColor,
+        hiltColor: this.state.hiltColor,
+        skinColor: this.state.skinColor,
+        robeColor: this.state.robeColor,
+        eyeColor: this.state.eyeColor,
+        backgroundColor: this.state.backgroundColor,
+        isSith: this.state.isSith,
+        ownerID: this.state.ownerID,
+        dateCreated: new Date(),
+        charTitle: this.state.charTitle,
+        formValues: this.state.formValues,
+        realName: this.state.realName,
+        contactInfo: this.state.contactInfo,
+        website: this.state.website,
+      };
+      await setDoc(creation, docData);
+    } else {
+      alert("CANNOT SUBMIT WITH EMPTY FIELDS");
+    }
 
     // let usr = await doc(firestore, 'users/' + this.state.ownerID)
+  }
+
+  handleRealNameChange(e) {
+    this.setState({
+      realName: e.target.value,
+    });
+  }
+  handleContactChange(e) {
+    this.setState({
+      contactInfo: e.target.value,
+    });
+  }
+  handleWebsiteChange(e) {
+    this.setState({
+      website: e.target.value,
+    });
   }
 
   handleFormChange(i, e) {
@@ -125,6 +170,7 @@ class CharacterCreate extends React.Component {
   render() {
     return (
       <div className="main-container">
+        <h1 style={{ textAlign: "center" }}>Character Creation</h1>
         <div className="character-title-wrapper">
           <div
             className="title-wrapper"
@@ -214,52 +260,100 @@ class CharacterCreate extends React.Component {
           </div>
         </div>
 
-        <div className="resume-details-wrapper" style={{ width: "25%" }}>
-          <div className="button-section">
-            <button
-              className="button add"
-              type="button"
-              onClick={() => this.addFormFields()}
-            >
-              +
-            </button>
+        <div
+          className="resume-details-wrapper"
+          style={{ width: "25%", display: "flex", flexDirection: "column" }}
+        >
+          <h2 style={{ textAlign: "center" }}>Resume Info</h2>
 
-            <button
-              type="button"
-              className="button remove"
-              onClick={() =>
-                this.removeFormFields(this.state.formValues.length - 1)
-              }
-            >
-              -
-            </button>
-          </div>
           <form>
             {this.state.formValues.map((element, index) => (
               <div
                 className="form-inline"
                 key={index}
-                style={{ display: "flex", flexDirection: "column" }}
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-start",
+                }}
               >
                 <input
+                  className="char-title"
                   placeholder={"Title"}
                   type="text"
                   name="desc"
                   value={element.desc || ""}
                   onChange={(e) => this.handleFormChange(index, e)}
-                  style={{ width: "50%" }}
+                  style={{
+                    textAlign: "center",
+                    width: "50%",
+                    alignSelf: "center",
+                  }}
                 />
 
-                <input
+                <textarea
+                  className="char-title"
                   placeholder={"Details"}
                   type="text"
                   name="detail"
                   value={element.detail || ""}
                   onChange={(e) => this.handleFormChange(index, e)}
-                  style={{ height: "300px" }}
+                  style={{ height: "200px", resize: "none" }}
                 />
               </div>
             ))}
+
+            <div className="button-section">
+              <button
+                className="button add"
+                type="button"
+                onClick={() => this.addFormFields()}
+              >
+                +
+              </button>
+
+              <button
+                type="button"
+                className="button remove"
+                onClick={() =>
+                  this.removeFormFields(this.state.formValues.length - 1)
+                }
+              >
+                -
+              </button>
+            </div>
+          </form>
+
+          <h3 style={{ textAlign: "center" }}>Contact Info</h3>
+
+          <form style={{ textAlign: "center" }}>
+            <input
+              className="char-title"
+              placeholder={"Real Name"}
+              type="text"
+              name="real-name"
+              value={this.state.realName || ""}
+              onChange={(e) => this.handleRealNameChange(e)}
+              style={{ textAlign: "center", width: "50%" }}
+            />
+            <input
+              className="char-title"
+              placeholder={"Contact Info"}
+              type="text"
+              name="contact-info"
+              value={this.state.contactInfo || ""}
+              onChange={(e) => this.handleContactChange(e)}
+              style={{ textAlign: "center", width: "80%" }}
+            />
+            <input
+              className="char-title"
+              placeholder={"LinkedIn, Github, etc."}
+              type="text"
+              name="website"
+              value={this.state.website || ""}
+              onChange={(e) => this.handleWebsiteChange(e)}
+              style={{ textAlign: "center", width: "100%" }}
+            />
           </form>
 
           <button className="publish" onClick={() => this.publish()}>

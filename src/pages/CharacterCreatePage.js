@@ -25,7 +25,12 @@ class CharacterCreatePage extends React.Component {
           skinColor={SkinColors[getRandomInt(6)]}
           isSith={getRandomInt(2) === 1 ? true : false}
           uuid={uuid()}
+          ownerID={"owner1"}
           charTitle={"Character Title"}
+          formValues={[{ desc: "", detail: "" }]}
+          realName={""}
+          contactInfo={""}
+          website={""}
         />
       </div>
     );
