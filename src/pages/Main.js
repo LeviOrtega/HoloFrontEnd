@@ -1,6 +1,6 @@
 import React from "react";
 import MicroPreview from "../components/MicroPreview";
-import { query, orderBy, limit, collection, getDocs } from "firebase/firestore";
+import { query, orderBy, limit, collection, getDocs, where} from "firebase/firestore";
 import { firestore } from "../Firebase";
 import { Link } from "react-router-dom";
 
@@ -9,13 +9,16 @@ class Main extends React.Component {
     super(props);
     this.state = {
       microPreviewList: [],
+      search: ""
     };
+
+    this.handleSearchChange = this.handleSearchChange.bind(this);
+    this.querySearch = this.querySearch.bind(this);
+
   }
 
-  async componentDidMount() {
-    const creations = collection(firestore, "creations");
-    const q = query(creations, orderBy("dateCreated", "desc"), limit(10));
-    const querySnap = await getDocs(q);
+
+  setMicroPreview(querySnap){
 
     querySnap.forEach((doc) => {
       this.setState({
@@ -43,8 +46,61 @@ class Main extends React.Component {
         ],
       });
     });
+  }
 
-    // console.log(this.state.microPreviewList);
+  async querySearch(event){
+    event.preventDefault();
+    if(this.state.search === ""){
+      this.queryByDate()
+      return;
+    }
+    const creations = collection(firestore, "creations");
+    const q = query(creations, where('charTitle', '==', this.state.search),limit(10));
+    const querySnap = await getDocs(q);
+
+
+    if(querySnap.size === 0){
+      // alert("Could not find anything.")
+     
+      this.setState({
+        search: ""
+      })
+       alert("Couldn't find anything");
+      
+    }
+
+    else {
+      this.setState({
+        microPreviewList:[]
+      })
+      this.setMicroPreview(querySnap);
+    }
+
+  }
+
+  async queryByDate(){
+    this.setState({
+      microPreviewList:[]
+    })
+    const creations = collection(firestore, "creations");
+    const q = query(creations, orderBy("dateCreated", "desc"), limit(10));
+    const querySnap = await getDocs(q);
+
+    this.setMicroPreview(querySnap);
+  }
+
+  async componentDidMount() {
+    this.queryByDate();
+  }
+
+
+
+  
+
+  handleSearchChange(e){
+    this.setState({
+      search: e.target.value
+    });
   }
 
   render() {
@@ -59,11 +115,27 @@ class Main extends React.Component {
         }}
       >
         <h2 style={{ color: "white" }}>Community Creations</h2>
+        <div style={{alignItems:"center"}}>
+        <form onSubmit={this.querySearch} >
+
+          <input 
+          className="char-title"
+          type="text" 
+          onChange={this.handleSearchChange}
+          value={this.state.search}
+          placeholder={"Search"}
+          style={{ padding:"2px", width:"auto", marginBottom:"20px"}}
+          />
+
+        </form>
+        </div>
+
         <div className="list-container" style={{ width: "90%" }}>
           <ul
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(5, 1fr)",
+              
               gap: "10px",
               margin: "0",
               padding: "0",

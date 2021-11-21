@@ -175,6 +175,7 @@ class CharacterCreate extends React.Component {
             <input
               className="char-title"
               type="text"
+              
               placeholder={this.state.charTitle}
               onChange={this.handleCharTitleChange}
               style={{ fontSize: "1.5vw", textAlign: "center", marginBottom:"20px"}}
@@ -193,6 +194,7 @@ class CharacterCreate extends React.Component {
                   " 0%, " +
                   this.state.backgroundColor +
                   " 100%)",
+                  position:"relative"
               }}
             >
                <button
