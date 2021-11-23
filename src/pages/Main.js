@@ -4,6 +4,7 @@ import { query, orderBy, limit, collection, getDocs, where} from "firebase/fires
 import { firestore } from "../Firebase";
 import { Link } from "react-router-dom";
 
+
 class Main extends React.Component {
   constructor(props) {
     super(props);
@@ -11,6 +12,8 @@ class Main extends React.Component {
       microPreviewList: [],
       search: ""
     };
+
+
 
     this.handleSearchChange = this.handleSearchChange.bind(this);
     this.querySearch = this.querySearch.bind(this);
@@ -90,6 +93,7 @@ class Main extends React.Component {
   }
 
   async componentDidMount() {
+    
     this.queryByDate();
   }
 

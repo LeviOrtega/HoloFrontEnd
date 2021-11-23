@@ -17,7 +17,7 @@ class App extends React.Component {
         <Navbar />
 
         <Routes>
-          <Route path="/" element={<Main />} />
+          <Route exact path="/" element={<Main />} />
           <Route path="/character-create" element={<CharacterCreatePage />} />
           <Route path="/about" element={<About />} />
           <Route path="/preview/:previewID" element={<Preview />} />

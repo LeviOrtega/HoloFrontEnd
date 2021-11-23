@@ -109,8 +109,8 @@
 }
 .is-sith-button {
   position:absolute;
-  margin-top: 0.5%;
-  margin-right: 15%;
+  margin-top: 3%;
+  margin-right: 75%;
   font-family: "SMW Text 2 NC", sans-serif;
   text-align: center;
   background: transparent;
@@ -122,7 +122,7 @@
   border-style: solid;
   border-color: white;
   opacity: 0.9;
-  z-index: 999;
+  z-index: 99;
 }
 
 .is-sith-button:hover {

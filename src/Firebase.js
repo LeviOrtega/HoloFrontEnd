@@ -1,7 +1,8 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import 'firebase/auth'
 
-export const firebaseApp = initializeApp({
+const firebaseApp = initializeApp({
   apiKey: "AIzaSyC5X7SoBByQIlqdlOwpgMumNe30_M6sdWY",
   authDomain: "holocron-e6f23.firebaseapp.com",
   projectId: "holocron-e6f23",
@@ -13,7 +14,10 @@ export const firebaseApp = initializeApp({
 
 
 
+
 export const firestore = getFirestore()
+export const auth = firebaseApp.auth
+export default firebaseApp;
 
 
 
