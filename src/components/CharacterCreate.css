@@ -78,6 +78,7 @@
 }
 
 .character-hover-wrapper {
+  
   width: 100%;
   position: relative;
   animation: updown 2s linear infinite;
@@ -157,4 +158,8 @@
   50% {
     bottom: 10px;
   }
+}
+
+@media screen {
+  
 }

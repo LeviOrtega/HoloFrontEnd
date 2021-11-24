@@ -2,12 +2,13 @@ import React from "react";
 import "./App.css";
 //import { Outlet } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import "./index.css";
-import CharacterCreatePage from "./pages/CharacterCreatePage";
+import "../index.css";
+import CharacterCreatePage from "../pages/CharacterCreatePage";
 import Navbar from "./Navbar";
-import Main from "./pages/Main";
-import About from "./pages/About";
-import Preview from "./pages/Preview";
+import Main from "../pages/Main";
+import About from "../pages/About";
+import Preview from "../pages/Preview";
+import Signup from "./Signup";
 
 
 class App extends React.Component {
@@ -21,6 +22,7 @@ class App extends React.Component {
           <Route path="/character-create" element={<CharacterCreatePage />} />
           <Route path="/about" element={<About />} />
           <Route path="/preview/:previewID" element={<Preview />} />
+          <Route path="/signup" element ={<Signup />} />
         </Routes>
       </Router>
     );

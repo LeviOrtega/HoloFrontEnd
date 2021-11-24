@@ -1,0 +1,48 @@
+.content-wrapper{
+    margin-top: 5%;
+    color:white;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px;
+}
+
+.form-group{
+    
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 2px;
+}
+
+.form{
+    justify-self: center;
+   
+}
+
+.submit-button{
+    margin-top: 10px;
+    width:50%;
+
+    background: #111111;
+  align-self: center;
+  text-align: center;
+  padding: 10px;
+  font-family: "SMW Text 2 NC", sans-serif;
+  text-align: center;
+  font-size: auto;
+  color: white;
+  border-radius: 20%;
+  border-style: solid;
+  border-color: white;
+}
+
+.submit-button:hover{
+    background: white;
+    color:#111111;
+    cursor: pointer;
+}
+

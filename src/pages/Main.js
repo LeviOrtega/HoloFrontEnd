@@ -119,7 +119,7 @@ class Main extends React.Component {
         }}
       >
         <h2 style={{ color: "white" }}>Community Creations</h2>
-        <div style={{alignItems:"center"}}>
+        <div className="search-wrapper" style={{}}>
         <form onSubmit={this.querySearch} >
 
           <input 
@@ -128,7 +128,7 @@ class Main extends React.Component {
           onChange={this.handleSearchChange}
           value={this.state.search}
           placeholder={"Search"}
-          style={{ padding:"2px", width:"auto", marginBottom:"20px"}}
+          style={{ padding:"5px", marginBottom:"20px"}}
           />
 
         </form>
