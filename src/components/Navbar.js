@@ -26,8 +26,14 @@ function Navbar() {
           to="/character-create"
           style={{ textDecoration: "none" }}
         >
-          {" "}
-          Character Create{" "}
+          Character Create
+        </Link>
+        <Link
+          className="link"
+          to="/my-creations"
+          style={{ textDecoration: "none" }}
+        >
+          My Creations
         </Link>
         <Link className="link" to="/about" style={{ textDecoration: "none" }}>
           {" "}

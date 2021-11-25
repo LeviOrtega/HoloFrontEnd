@@ -9,9 +9,11 @@ import Main from "../pages/Main";
 import About from "../pages/About";
 import Preview from "../pages/Preview";
 import Signup from "./Signup";
+import MyCreations from "../pages/MyCreations";
 import Login from "./Login";
 import AuthProvider from "../contexts/AuthContext";
 import PrivateRoute from "./PrivateRoute";
+
 
 class App extends React.Component {
   render() {
@@ -24,6 +26,9 @@ class App extends React.Component {
             <Route exact path="/" element={<Main />} />
             <Route exact path="/character-create" element={<PrivateRoute />}> 
               <Route exact path="/character-create" element={<CharacterCreatePage />} />
+            </Route>
+            <Route exact path="/my-creations" element={<PrivateRoute />}> 
+              <Route exact path="/my-creations" element={<MyCreations />} />
             </Route>
             <Route path="/about" element={<About />} />
             <Route path="/preview/:previewID" element={<Preview />} />
