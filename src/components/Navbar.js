@@ -1,13 +1,17 @@
 import React from "react"
 import './Navbar.css'
 import { Link } from 'react-router-dom';
+import {useAuth} from "../contexts/AuthContext"
 
 
 
-class Navbar extends React.Component{
+function Navbar (){
 
+    const {logout, currentUser} = useAuth()
 
-    render(){
+    async function handleLogOut(){
+        await logout()
+    }
 
         return (
             
@@ -17,11 +21,12 @@ class Navbar extends React.Component{
                 <Link className="link" to="/character-create"  style={{textDecoration:"none"}}> Character Create </Link>
                 <Link className="link" to="/about"  style={{textDecoration:"none"}}> About </Link>
                 </div>
-               
+                {currentUser ? <button className="log-button" onClick={() => handleLogOut()}>Log Out</button> : <Link className="log-button" to="/login">Log In</Link>}
+
             </nav>
            
         )
-    }
+    
 }
 
 export default Navbar

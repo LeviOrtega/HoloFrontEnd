@@ -1,13 +1,8 @@
 .navbar{
     background: linear-gradient(90deg, #262b44 0%, #262b44 100%);
     height: 80px;
-    display: grid;
-    border:white;
-    border-style: solid 1px;
-    justify-content: left;
-    align-items: center;
-    text-decoration: none;
-    color: white;
+    display:flex;
+    flex-direction: row;
     position: sticky;
     top: 0;
     z-index: 999;
@@ -20,13 +15,46 @@
 }
 
 .navbar-container{
+    width: 92%;
    margin-left: 20px;
    font-size: 1vw;
+   display: flex;
+   flex-direction: row;
+ 
+   
+    justify-content: left;
+    align-items: center;
+    text-decoration: none;
+    color: white;
 }
 
 .link + .link{
     margin-left: 20px;
     opacity: 0.7;
+}
+
+.log-button{
+   
+    font-family: "SMW Text 2 NC", sans-serif;
+    text-align: center;
+    font-size: auto;
+    background: transparent;
+    color: #FFF;
+    text-decoration: none;
+    opacity: 0.7;
+    border:white;
+    border-radius: 5%;
+    border-style: solid;
+    padding: 5px;
+    justify-self: left;
+    align-self: center;
+   
+
+}
+.log-button:hover{
+    background: white;
+    cursor:pointer;
+    color: #262b44;
 }
 
 .link{
@@ -47,6 +75,6 @@
       bottom: 0px;
     }
     50% {
-      bottom: 5px;
+      bottom: 2px;
     }
   }

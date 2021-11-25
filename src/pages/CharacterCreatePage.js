@@ -33,7 +33,8 @@ function CharacterCreatePage() {
           skinColor={SkinColors[getRandomInt(6)]}
           isSith={getRandomInt(2) === 1 ? true : false}
           uuid={uuid()}
-          ownerID={currentUser.uid}
+          // just in case currentUser is null then we want to set this to nothing
+          ownerID={currentUser ? currentUser.uid : ""}
           charTitle={"Character Title"}
           formValues={[{ desc: "", detail: "" }]}
           realName={""}
