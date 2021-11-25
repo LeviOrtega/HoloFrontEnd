@@ -13,9 +13,6 @@ import Character from "../resources/Character";
 import { firestore } from "../Firebase";
 import { doc, setDoc } from "firebase/firestore";
 
-
-
-
 class CharacterCreate extends React.Component {
   constructor(props) {
     super(props);
@@ -79,13 +76,10 @@ class CharacterCreate extends React.Component {
         website: this.state.website,
       };
       await setDoc(creation, docData);
-      this.state.navigatePreview(this.state.uuid)
+      this.state.navigatePreview(this.state.uuid);
     } else {
       alert("CANNOT SUBMIT WITH EMPTY FIELDS");
     }
-
-
-    
 
     // let usr = await doc(firestore, 'users/' + this.state.ownerID)
   }
@@ -180,18 +174,19 @@ class CharacterCreate extends React.Component {
       <div className="main-container">
         {/* <h1 style={{ textAlign: "center" }}>Character Creation</h1> */}
         <div className="title-wrapper" style={{ alignSelf: "center" }}>
-            <input
-              className="char-title"
-              type="text"
-              
-              placeholder={this.state.charTitle}
-              onChange={this.handleCharTitleChange}
-              style={{ fontSize: "1.5vw", textAlign: "center", marginBottom:"20px"}}
-            />
-          </div>
+          <input
+            className="char-title"
+            type="text"
+            placeholder={this.state.charTitle}
+            onChange={this.handleCharTitleChange}
+            style={{
+              fontSize: "1.5vw",
+              textAlign: "center",
+              marginBottom: "20px",
+            }}
+          />
+        </div>
         <div className="character-creation-wrapper">
-          
-
           <div className="character-create">
             <div
               className="character-background"
@@ -202,16 +197,16 @@ class CharacterCreate extends React.Component {
                   " 0%, " +
                   this.state.backgroundColor +
                   " 100%)",
-                  position:"relative"
+                position: "relative",
               }}
             >
-               <button
-              className="is-sith-button"
-              // style={{ backgroundColor: this.state.backgroundColor }}
-              onClick={() => this.handleFactionChange()}
-            >
-              <div>{this.state.isSith ? "Sith" : "Jedi"}</div>{" "}
-            </button>
+              <button
+                className="is-sith-button"
+                // style={{ backgroundColor: this.state.backgroundColor }}
+                onClick={() => this.handleFactionChange()}
+              >
+                <div>{this.state.isSith ? "Sith" : "Jedi"}</div>{" "}
+              </button>
               <div className="character-hover-wrapper">
                 <Character
                   bladeColor={this.state.bladeColor}
@@ -307,12 +302,26 @@ class CharacterCreate extends React.Component {
                   name="detail"
                   value={element.detail || ""}
                   onChange={(e) => this.handleFormChange(index, e)}
-                  style={{width:"150%", height: "200px", resize: "none", padding: "20px", alignSelf:"center"}}
+                  style={{
+                    width: "150%",
+                    height: "200px",
+                    resize: "none",
+                    padding: "20px",
+                    alignSelf: "center",
+                  }}
                 />
               </div>
             ))}
 
-            <div className="add-remove-buttons" style={{display:"flex", flexDirection:"row", alignItems:"center", justifyContent: "center"}}>
+            <div
+              className="add-remove-buttons"
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
               <button
                 className="button-a-r"
                 type="button"
@@ -382,4 +391,4 @@ class CharacterCreate extends React.Component {
   }
 }
 
-export default (CharacterCreate);
+export default CharacterCreate;

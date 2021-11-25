@@ -1,47 +1,45 @@
-.content-wrapper{
-    margin-top: 5%;
-    color:white;
-    text-align: center;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 10px;
+.content-wrapper {
+  margin-top: 5%;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
 }
 
-.login-suggestion{
-    font-size: 10px;
+.login-suggestion {
+  font-size: 10px;
 }
 
-.sign-error{
-    border: white;
-    border-radius: 5%;
-    border-style: solid;
-    background: red;
-    font-size: 80%;
-    padding:5%;
-    margin:5%;
+.sign-error {
+  border: white;
+  border-radius: 5%;
+  border-style: solid;
+  background: red;
+  font-size: 80%;
+  padding: 5%;
+  margin: 5%;
 }
 
-.form-group{
-    
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 2px;
+.form-group {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 2px;
 }
 
-.form{
-    justify-self: center;
-   
+.form {
+  justify-self: center;
 }
 
-.submit-button{
-    margin-top: 10px;
-    width:50%;
+.submit-button {
+  margin-top: 10px;
+  width: 50%;
 
-    background: #111111;
+  background: #111111;
   align-self: center;
   text-align: center;
   padding: 10px;
@@ -54,9 +52,8 @@
   border-color: white;
 }
 
-.submit-button:hover{
-    background: white;
-    color:#111111;
-    cursor: pointer;
+.submit-button:hover {
+  background: white;
+  color: #111111;
+  cursor: pointer;
 }
-
