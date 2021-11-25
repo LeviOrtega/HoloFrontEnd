@@ -9,12 +9,16 @@ import Main from "../pages/Main";
 import About from "../pages/About";
 import Preview from "../pages/Preview";
 import Signup from "./Signup";
+import Login from "./Login"
+import AuthProvider from "../contexts/AuthContext";
 
 
 class App extends React.Component {
   render() {
     return (
+      
       <Router>
+        <AuthProvider>
         <Navbar />
 
         <Routes>
@@ -23,8 +27,11 @@ class App extends React.Component {
           <Route path="/about" element={<About />} />
           <Route path="/preview/:previewID" element={<Preview />} />
           <Route path="/signup" element ={<Signup />} />
+          <Route path="/login" element ={<Login />} />
         </Routes>
+        </AuthProvider>
       </Router>
+      
     );
   }
 }

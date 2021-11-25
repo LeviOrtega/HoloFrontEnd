@@ -81,6 +81,7 @@ class PreviewCharacter extends React.Component {
                 <form style={{ textAlign: "center"}}>
                  <div style={{display: "flex", flexDirection: "row"}}>
                   <input
+                  readOnly
                     className="preview-text-field"
                     type="text"
                     name="real-name"
@@ -88,6 +89,7 @@ class PreviewCharacter extends React.Component {
                     style={{ textAlign: "center", width: "auto" }}
                   />
                   <input
+                  readOnly
                     className="preview-text-field"
                     type="text"
                     name="contact-info"
@@ -95,6 +97,7 @@ class PreviewCharacter extends React.Component {
                     style={{ textAlign: "center", width: "auto" }}
                   />
                   <input
+                  readOnly
                     className="preview-text-field"
                     type="text"
                     name="website"
@@ -120,6 +123,7 @@ class PreviewCharacter extends React.Component {
                       }}
                     >
                       <input
+                        readOnly
                         className="preview-text-field"
                         placeholder={"Title"}
                         type="text"
@@ -134,6 +138,7 @@ class PreviewCharacter extends React.Component {
                       />
 
                       <textarea
+                        readOnly
                         className="preview-text-field"
                         type="text"
                         name="detail"

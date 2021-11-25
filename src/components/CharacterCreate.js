@@ -12,6 +12,8 @@ import {
 import Character from "../resources/Character";
 import { firestore } from "../Firebase";
 import { doc, setDoc } from "firebase/firestore";
+// import {useNavigate} from 'react-router-dom'
+
 
 class CharacterCreate extends React.Component {
   constructor(props) {
@@ -78,6 +80,8 @@ class CharacterCreate extends React.Component {
     } else {
       alert("CANNOT SUBMIT WITH EMPTY FIELDS");
     }
+
+  
 
     // let usr = await doc(firestore, 'users/' + this.state.ownerID)
   }

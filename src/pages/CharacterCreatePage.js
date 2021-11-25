@@ -8,13 +8,15 @@ import {
 } from "../resources/Colors";
 import CharacterCreate from "../components/CharacterCreate";
 import uuid from "react-uuid";
+import {useAuth} from "../contexts/AuthContext"
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-class CharacterCreatePage extends React.Component {
-  render() {
+function CharacterCreatePage() {
+  const {currentUser} = useAuth()
+  
     return (
       <div className="character-create-page">
         <CharacterCreate
@@ -25,7 +27,7 @@ class CharacterCreatePage extends React.Component {
           skinColor={SkinColors[getRandomInt(6)]}
           isSith={getRandomInt(2) === 1 ? true : false}
           uuid={uuid()}
-          ownerID={"owner1"}
+          ownerID={currentUser.uid}
           charTitle={"Character Title"}
           formValues={[{ desc: "", detail: "" }]}
           realName={""}
@@ -34,7 +36,7 @@ class CharacterCreatePage extends React.Component {
         />
       </div>
     );
-  }
+  
 }
 
 export default CharacterCreatePage;
