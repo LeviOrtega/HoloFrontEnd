@@ -32,6 +32,7 @@ class CharacterCreate extends React.Component {
       contactInfo: this.props.contactInfo,
       website: this.props.website,
       navigatePreview: this.props.navigatePreview,
+      error: "",
     };
 
     this.handleCharTitleChange = this.handleCharTitleChange.bind(this);
@@ -58,6 +59,9 @@ class CharacterCreate extends React.Component {
 
   async publish() {
     if (this.checkNoFormEmpty()) {
+      this.setState({
+        error: ""
+      })
       let creation = await doc(firestore, "creations/" + this.state.uuid);
       const docData = {
         bladeColor: this.state.bladeColor,
@@ -78,7 +82,9 @@ class CharacterCreate extends React.Component {
       await setDoc(creation, docData);
       this.state.navigatePreview(this.state.uuid);
     } else {
-      alert("CANNOT SUBMIT WITH EMPTY FIELDS");
+      this.setState({
+        error: "Cannot submit with empty fields"
+      })
     }
 
     // let usr = await doc(firestore, 'users/' + this.state.ownerID)
@@ -110,9 +116,13 @@ class CharacterCreate extends React.Component {
     if (this.state.formValues.length <= 2) {
       this.setState({
         formValues: [...this.state.formValues, { desc: "", detail: "" }],
+        error:""
       });
     } else {
-      alert("CANNOT ADD MORE THAN 3 RESUME FIELDS");
+      
+      this.setState({
+        error: "Cannot add more than 3 resume fields"
+      })
     }
   }
 
@@ -120,9 +130,12 @@ class CharacterCreate extends React.Component {
     if (this.state.formValues.length > 1) {
       let formValues = this.state.formValues;
       formValues.splice(i, 1);
-      this.setState({ formValues });
+      this.setState({ formValues, error:"" });
     } else {
-      alert("CANNOT REMOVE ALL RESUME FIELDS");
+      
+      this.setState({
+        error: "Cannot remove all resume fields"
+      })
     }
   }
 
@@ -269,7 +282,11 @@ class CharacterCreate extends React.Component {
           style={{ width: "25%", display: "flex", flexDirection: "column" }}
         >
           <h2 style={{ textAlign: "center" }}>Resume Info</h2>
-
+          {this.state.error && (
+            <alert className="sign-error" variant="danger" style={{textAlign:"center"}}>
+              {this.state.error}
+            </alert>
+          )}
           <form>
             {this.state.formValues.map((element, index) => (
               <div

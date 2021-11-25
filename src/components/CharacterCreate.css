@@ -3,26 +3,27 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 10px;
   margin-top: 1%;
   font-size: 2vmin;
   color: white;
 }
 
-.button-a-r{
+.button-a-r {
   border-radius: 20%;
   border: transparent;
   border-style: solid;
-  color:white;
+  color: white;
   font-size: 1.2vw;
   text-align: center;
   width: 2vw;
   height: 2vw;
   margin: 1px;
-  
+
   background: #262b44;
 }
-.button-a-r:hover{
-  border:white;
+.button-a-r:hover {
+  border: white;
   border-style: solid;
   cursor: pointer;
 }
@@ -43,7 +44,7 @@
 }
 .publish:hover {
   background: white;
-  color:#111111;
+  color: #111111;
   cursor: pointer;
 }
 
@@ -54,8 +55,7 @@
   border-radius: 5%;
   border: white;
   border-style: solid;
-  display: flex;
-  flex-direction: column;
+
   gap: 5px;
   /* justify-content: left; */
   padding: 40px;
@@ -78,7 +78,6 @@
 }
 
 .character-hover-wrapper {
-  
   width: 100%;
   position: relative;
   animation: updown 2s linear infinite;
@@ -88,7 +87,7 @@
   padding: 10px;
   margin-top: 5px;
   margin-bottom: 5px;
- 
+
   border: white;
   border-radius: 15%;
   border-style: solid;
@@ -97,19 +96,15 @@
   background-color: #262b44;
   resize: none;
   outline: none !important;
- 
-  
 }
-
-
 
 .asset-container {
   display: flex;
   flex-direction: column;
-  align-self: flex-start;
+  align-self: center;
 }
 .is-sith-button {
-  position:absolute;
+  position: absolute;
   margin-top: 3%;
   margin-right: 75%;
   font-family: "SMW Text 2 NC", sans-serif;
@@ -127,7 +122,7 @@
 }
 
 .is-sith-button:hover {
-  opacity: 1.0;
+  opacity: 1;
   cursor: pointer;
 }
 
@@ -141,15 +136,6 @@
   flex-direction: column;
 }
 
-/* @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  } */
-
 @keyframes updown {
   0%,
   100% {
@@ -158,8 +144,4 @@
   50% {
     bottom: 10px;
   }
-}
-
-@media screen {
-  
 }

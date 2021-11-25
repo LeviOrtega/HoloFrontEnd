@@ -1,28 +1,30 @@
 import React from "react";
 import MicroPreview from "../components/MicroPreview";
-import { query, orderBy, limit, collection, getDocs, where} from "firebase/firestore";
+import {
+  query,
+  orderBy,
+  limit,
+  collection,
+  getDocs,
+  where,
+} from "firebase/firestore";
 import { firestore } from "../Firebase";
 import { Link } from "react-router-dom";
-
 
 class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       microPreviewList: [],
-      search: ""
+      search: "",
+      error: "",
     };
-
-
 
     this.handleSearchChange = this.handleSearchChange.bind(this);
     this.querySearch = this.querySearch.bind(this);
-
   }
 
-
-  setMicroPreview(querySnap){
-
+  setMicroPreview(querySnap) {
     querySnap.forEach((doc) => {
       this.setState({
         microPreviewList: [
@@ -51,40 +53,41 @@ class Main extends React.Component {
     });
   }
 
-  async querySearch(event){
+  async querySearch(event) {
     event.preventDefault();
-    if(this.state.search === ""){
-      this.queryByDate()
+    if (this.state.search === "") {
+      this.queryByDate();
       return;
     }
     const creations = collection(firestore, "creations");
-    const q = query(creations, where('charTitle', '==', this.state.search),limit(10));
+    const q = query(
+      creations,
+      where("charTitle", "==", this.state.search),
+      limit(10)
+    );
     const querySnap = await getDocs(q);
 
-
-    if(querySnap.size === 0){
+    if (querySnap.size === 0) {
       // alert("Could not find anything.")
-     
-      this.setState({
-        search: ""
-      })
-       alert("Couldn't find anything");
-      
-    }
 
-    else {
       this.setState({
-        microPreviewList:[]
-      })
+        search: "",
+        error: "Could not find anything. Search is case sensative. Try again",
+      });
+    } else {
+      this.setState({
+        microPreviewList: [],
+        error: "",
+      });
       this.setMicroPreview(querySnap);
     }
-
   }
 
-  async queryByDate(){
+  async queryByDate() {
     this.setState({
-      microPreviewList:[]
-    })
+      microPreviewList: [],
+      error: "",
+    });
     const creations = collection(firestore, "creations");
     const q = query(creations, orderBy("dateCreated", "desc"), limit(10));
     const querySnap = await getDocs(q);
@@ -93,17 +96,12 @@ class Main extends React.Component {
   }
 
   async componentDidMount() {
-    
     this.queryByDate();
   }
 
-
-
-  
-
-  handleSearchChange(e){
+  handleSearchChange(e) {
     this.setState({
-      search: e.target.value
+      search: e.target.value,
     });
   }
 
@@ -119,19 +117,26 @@ class Main extends React.Component {
         }}
       >
         <h2 style={{ color: "white" }}>Community Creations</h2>
+        {this.state.error && (
+          <alert
+            className="sign-error"
+            variant="danger"
+            style={{ textAlign: "center" }}
+          >
+            {this.state.error}
+          </alert>
+        )}
         <div className="search-wrapper" style={{}}>
-        <form onSubmit={this.querySearch} >
-
-          <input 
-          className="char-title"
-          type="text" 
-          onChange={this.handleSearchChange}
-          value={this.state.search}
-          placeholder={"Search"}
-          style={{ padding:"5px", marginBottom:"20px"}}
-          />
-
-        </form>
+          <form onSubmit={this.querySearch}>
+            <input
+              className="char-title"
+              type="text"
+              onChange={this.handleSearchChange}
+              value={this.state.search}
+              placeholder={"Search"}
+              style={{ padding: "5px", marginBottom: "20px" }}
+            />
+          </form>
         </div>
 
         <div className="list-container" style={{ width: "90%" }}>
@@ -139,7 +144,8 @@ class Main extends React.Component {
             style={{
               display: "grid",
               gridTemplateColumns: "repeat(5, 1fr)",
-              
+              gridTemplateRows: "repeat(2, 1fr)",
+
               gap: "10px",
               margin: "0",
               padding: "0",

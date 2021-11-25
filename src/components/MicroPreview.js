@@ -47,6 +47,7 @@ class MicroPreview extends React.Component {
           style={{
             alignSelf: "center",
             textAlign: "center",
+            
             marginTop: "1%",
             background:
               "linear-gradient(90deg, " +
@@ -54,7 +55,11 @@ class MicroPreview extends React.Component {
               " 0%, " +
               this.state.backgroundColor +
               " 100%)",
+            
+            
             width: "80%",
+            height: "fit-content",
+         
             border: "white",
             borderStyle: "solid",
             borderRadius: "15%",

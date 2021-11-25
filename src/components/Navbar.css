@@ -1,80 +1,81 @@
-.navbar{
-    background: linear-gradient(90deg, #262b44 0%, #262b44 100%);
-    height: 80px;
-    display:flex;
-    flex-direction: row;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-  
+.navbar {
+  background: linear-gradient(90deg, #262b44 0%, #262b44 100%);
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
-.site-title{
-    font-size: 3vw;
-    opacity: 0.85;
+.site-title {
+  font-size: 3vw;
+  opacity: 0.85;
 }
 
-.navbar-container{
-    width: 90%;
-   margin-left: 20px;
-   font-size: 1vw;
-   display: flex;
-   flex-direction: row;
- 
-   
-    justify-content: left;
-    align-items: center;
-    text-decoration: none;
-    color: white;
+.navbar-container {
+  width: 90%;
+  margin-left: 20px;
+  font-size: 1vw;
+  display: flex;
+  flex-direction: row;
+
+  justify-content: left;
+  align-items: center;
+  text-decoration: none;
+  color: white;
 }
 
-.link + .link{
-    margin-left: 20px;
-    opacity: 0.7;
+.link + .link {
+  margin-left: 20px;
+  opacity: 0.7;
 }
 
-.log-button{
-   
-    font-family: "SMW Text 2 NC", sans-serif;
-    text-align: center;
-    font-size: auto;
-    background: transparent;
-    color: #FFF;
-    text-decoration: none;
-    opacity: 0.7;
-    border:white;
-    border-radius: 5%;
-    border-style: solid;
-    padding: 5px;
-    justify-self: left;
-    align-self: center;
-   
-
+.log-button {
+  font-family: "SMW Text 2 NC", sans-serif;
+  text-align: center;
+  font-size: auto;
+  background: transparent;
+  color: #fff;
+  text-decoration: none;
+  opacity: 0.7;
+  border: white;
+  border-radius: 5%;
+  border-style: solid;
+  padding: 5px;
+  justify-self: left;
+  align-self: center;
 }
-.log-button:hover{
-    background: white;
-    cursor:pointer;
-    color: #262b44;
+.log-button:hover {
+  background: white;
+  cursor: pointer;
+  color: #262b44;
 }
 
-.link{
-   
-    color: #FFF;
-   
+.link {
+  color: #fff;
 }
 
-.link:hover{
+.site-title:hover {
+  opacity: 1;
+  cursor: pointer;
+  position: relative;
+  animation: downup-title 2s linear infinite;
+}
+
+.link + .link:hover{
     opacity: 1;
-    cursor: pointer;
-    position: relative;
-    animation: updown 3s linear infinite;
+  cursor: pointer;
+  position: relative;
 }
 
-@keyframes updown{
-    0%, 100% {
+
+@keyframes downup-title {
+    0%,
+    100% {
       bottom: 0px;
     }
     50% {
-      bottom: 2px;
+      bottom: 3px;
     }
   }

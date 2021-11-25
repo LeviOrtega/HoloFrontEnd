@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-//import { Outlet } from 'react-router-dom';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "../index.css";
 import CharacterCreatePage from "../pages/CharacterCreatePage";
@@ -14,7 +13,6 @@ import Login from "./Login";
 import AuthProvider from "../contexts/AuthContext";
 import PrivateRoute from "./PrivateRoute";
 
-
 class App extends React.Component {
   render() {
     return (
@@ -24,10 +22,14 @@ class App extends React.Component {
 
           <Routes>
             <Route exact path="/" element={<Main />} />
-            <Route exact path="/character-create" element={<PrivateRoute />}> 
-              <Route exact path="/character-create" element={<CharacterCreatePage />} />
+            <Route exact path="/character-create" element={<PrivateRoute />}>
+              <Route
+                exact
+                path="/character-create"
+                element={<CharacterCreatePage />}
+              />
             </Route>
-            <Route exact path="/my-creations" element={<PrivateRoute />}> 
+            <Route exact path="/my-creations" element={<PrivateRoute />}>
               <Route exact path="/my-creations" element={<MyCreations />} />
             </Route>
             <Route path="/about" element={<About />} />

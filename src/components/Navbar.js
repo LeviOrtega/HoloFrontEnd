@@ -18,8 +18,7 @@ function Navbar() {
           to="/"
           style={{ textDecoration: "none" }}
         >
-          {" "}
-          Holocron Resume{" "}
+          Holocron Resume
         </Link>
         <Link
           className="link"
@@ -33,11 +32,10 @@ function Navbar() {
           to="/my-creations"
           style={{ textDecoration: "none" }}
         >
-          My Creations
+          Creations
         </Link>
         <Link className="link" to="/about" style={{ textDecoration: "none" }}>
-          {" "}
-          About{" "}
+          About
         </Link>
       </div>
       {currentUser ? (

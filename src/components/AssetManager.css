@@ -1,8 +1,4 @@
 .container {
-  /* max-width: 90%; */
-  /* border-radius: 4%;
-    border: white;
-    border-style: solid; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -33,16 +29,7 @@
 
 .button:hover {
   opacity: 1.5;
-  border:white;
+  border: white;
   border-style: solid;
   cursor: pointer;
 }
-
-/* @keyframes updown{
-    0%, 100% {
-      bottom: 1px;
-    }
-    50% {
-      bottom: 0px;
-    }
-  } */
