@@ -9,6 +9,7 @@ import {
 import CharacterCreate from "../components/CharacterCreate";
 import uuid from "react-uuid";
 import {useAuth} from "../contexts/AuthContext"
+import {useNavigate} from 'react-router-dom'
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -16,6 +17,11 @@ function getRandomInt(max) {
 
 function CharacterCreatePage() {
   const {currentUser} = useAuth()
+  const navigate = useNavigate()
+
+  async function navigatePreview(id){
+    navigate("/preview/" + id)
+  }
   
     return (
       <div className="character-create-page">
@@ -33,6 +39,7 @@ function CharacterCreatePage() {
           realName={""}
           contactInfo={""}
           website={""}
+          navigatePreview={(id) => navigatePreview(id)}
         />
       </div>
     );

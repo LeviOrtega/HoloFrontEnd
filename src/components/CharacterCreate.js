@@ -12,7 +12,8 @@ import {
 import Character from "../resources/Character";
 import { firestore } from "../Firebase";
 import { doc, setDoc } from "firebase/firestore";
-// import {useNavigate} from 'react-router-dom'
+
+
 
 
 class CharacterCreate extends React.Component {
@@ -33,6 +34,7 @@ class CharacterCreate extends React.Component {
       realName: this.props.realName,
       contactInfo: this.props.contactInfo,
       website: this.props.website,
+      navigatePreview: this.props.navigatePreview,
     };
 
     this.handleCharTitleChange = this.handleCharTitleChange.bind(this);
@@ -77,11 +79,13 @@ class CharacterCreate extends React.Component {
         website: this.state.website,
       };
       await setDoc(creation, docData);
+      this.state.navigatePreview(this.state.uuid)
     } else {
       alert("CANNOT SUBMIT WITH EMPTY FIELDS");
     }
 
-  
+
+    
 
     // let usr = await doc(firestore, 'users/' + this.state.ownerID)
   }
@@ -378,4 +382,4 @@ class CharacterCreate extends React.Component {
   }
 }
 
-export default CharacterCreate;
+export default (CharacterCreate);
