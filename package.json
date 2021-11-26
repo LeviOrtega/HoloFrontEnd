@@ -15,7 +15,10 @@
     "react-router": "^6.0.2",
     "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
+    "react-spring": "^9.3.2",
+    "react-typical": "^0.1.3",
     "react-uuid": "^1.0.2",
+    "typer-js": "^5.5.3",
     "typewriter-effect": "^2.18.2",
     "web-vitals": "^1.1.2"
   },

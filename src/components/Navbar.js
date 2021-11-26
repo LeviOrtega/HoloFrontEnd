@@ -3,8 +3,11 @@ import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
 
+
 function Navbar() {
   const { logout, currentUser } = useAuth();
+
+  
 
   async function handleLogOut() {
     await logout();
@@ -12,7 +15,9 @@ function Navbar() {
 
   return (
     <nav className="navbar">
+      
       <div className="navbar-container">
+
         <Link
           className="link site-title"
           to="/"

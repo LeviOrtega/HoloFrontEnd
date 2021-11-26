@@ -8,6 +8,10 @@ function Play() {
   let { previewID } = useParams();
   var navigate = useNavigate()
 
+  function preview(){
+    navigate("/preview/" + previewID)
+  }
+
   return (
     <div
       className="play-wrapper"
@@ -18,10 +22,8 @@ function Play() {
         alignItems: "center",
       }}
     >
-      <PlayCharacter  previewID={previewID} />
-      <button className="publish" style={{marginBottom:"2%"}} onClick={() => navigate("/preview/" + previewID) }>
-            Preview Full Resume
-          </button>
+      <PlayCharacter  previewID={previewID} onClick={() => preview()}/>
+      
     </div>
   );
 }

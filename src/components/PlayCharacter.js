@@ -17,6 +17,7 @@ class PlayCharacter extends React.Component {
       resumeFieldText: "",
       resumeIndex: 0,
       loading: true,
+      onClick: this.props.onClick
     };
   }
 
@@ -116,6 +117,7 @@ class PlayCharacter extends React.Component {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
+          marginTop: "1%",
           color: "white",
           width: "100%",
         }}
@@ -123,10 +125,10 @@ class PlayCharacter extends React.Component {
         <div style={{ width: "20%" }}>{this.state.character}</div>
 
         {!this.state.loading && (
-          <div style={{ textAlign: "center", width: "50%" }}>
-            <div>{this.state.resumeTitleText}</div>
+          <div style={{ textAlign: "left", width: "40%", margin: "10px" }}>
+            <div style={{fontSize:"40px", marginBottom: "10px"}}>{this.state.resumeTitleText}</div>
             <Typewriter
-             
+
               onInit={(typewriter) => {
                 typewriter
                   .start()
@@ -161,6 +163,11 @@ class PlayCharacter extends React.Component {
         )}
 
         <div style={{}}>{this.state.contactInfo}</div>
+
+        {!this.state.loading &&
+        <button className="publish" style={{marginBottom:"2%"}} onClick={() => this.state.onClick() }>
+        Preview Full Resume
+      </button>}
       </div>
     );
   }
