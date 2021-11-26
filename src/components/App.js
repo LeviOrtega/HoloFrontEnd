@@ -12,6 +12,7 @@ import MyCreations from "../pages/MyCreations";
 import Login from "./Login";
 import AuthProvider from "../contexts/AuthContext";
 import PrivateRoute from "./PrivateRoute";
+import Play from "../pages/Play";
 
 class App extends React.Component {
   render() {
@@ -34,6 +35,7 @@ class App extends React.Component {
             </Route>
             <Route path="/about" element={<About />} />
             <Route path="/preview/:previewID" element={<Preview />} />
+            <Route path="/play/:previewID" element={<Play />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/login" element={<Login />} />
           </Routes>

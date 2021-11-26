@@ -8,6 +8,7 @@ class PreviewCharacter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      onClick: this.props.onClick,
       previewID: this.props.previewID,
       character: null,
       resumeField: null,
@@ -24,7 +25,7 @@ class PreviewCharacter extends React.Component {
             character: (
               <div
                 className="preview-wrapper"
-                style={{ display: "flex", flexDirection: "column" }}
+                style={{ display: "flex", flexDirection: "column"}}
               >
                 <div
                   className="title-wrapper"
@@ -71,6 +72,9 @@ class PreviewCharacter extends React.Component {
                     />
                   </div>
                 </div>
+                <button className="publish" style={{marginTop: "2%"}} onClick={() =>  this.state.onClick()}>
+            Play Resume
+        </button>
               </div>
             ),
 
@@ -163,6 +167,7 @@ class PreviewCharacter extends React.Component {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
+         
         }}
       >
         <div style={{ width: "50%" }}>{this.state.character}</div>

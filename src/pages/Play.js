@@ -1,19 +1,16 @@
 import React from "react";
 import { useParams } from "react-router";
-import PreviewCharacter from "../components/PreviewCharacter";
+import PlayCharacter from "../components/PlayCharacter";
 import {useNavigate} from 'react-router-dom'
 
-function Preview() {
+
+function Play() {
   let { previewID } = useParams();
   var navigate = useNavigate()
 
-  function play(){
-    navigate("/play/" + previewID)
-  }
-
   return (
     <div
-      className="preview-wrapper"
+      className="play-wrapper"
       style={{
         display: "flex",
         flexDirection:"column",
@@ -21,11 +18,12 @@ function Preview() {
         alignItems: "center",
       }}
     >
-    
-      <PreviewCharacter previewID={previewID} onClick={() => play()} />
-      
+      <PlayCharacter  previewID={previewID} />
+      <button className="publish" style={{marginBottom:"2%"}} onClick={() => navigate("/preview/" + previewID) }>
+            Preview Full Resume
+          </button>
     </div>
   );
 }
 
-export default Preview;
+export default Play;
