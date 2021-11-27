@@ -9,6 +9,10 @@
   color: white;
 }
 
+.resume-details-wrapper{
+  width: 25%;
+}
+
 .button-a-r {
   border-radius: 20%;
   border: transparent;
@@ -161,14 +165,36 @@
 
 @media only screen and (max-width: 1000px) {
   .character-create {
-   align-items: center;
+    align-items: center;
     flex-direction: column;
     gap: 5px;
   }
 
   .character-background {
-    
     width: 100%;
+  }
+
+  .button-a-r {
+    font-size: 10px;
+    width: 20px;
+    height: 20px;
+  }
+
+  .is-right-button,
+  .is-sith-button {
+    font-size: 10px;
+  }
+
+  .char-title {
+    font-size: 10px;
+  }
+
+  .title-wrapper{
+   font-size: 20px;
+  }
+
+  .resume-details-wrapper{
+    width: 200px;
   }
 }
 

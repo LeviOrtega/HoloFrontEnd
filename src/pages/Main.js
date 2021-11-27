@@ -118,7 +118,7 @@ class Main extends React.Component {
           padding: "10px",
         }}
       >
-        <h2 style={{ color: "white" }}>Community Creations</h2>
+        <h2 style={{textAlign: "center" , color: "white" }}>Community Creations</h2>
         {this.state.error && (
           <alert
             className="sign-error"

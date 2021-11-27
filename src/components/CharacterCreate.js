@@ -218,14 +218,13 @@ class CharacterCreate extends React.Component {
     return (
       <div className="main-container">
         {/* <h1 style={{ textAlign: "center" }}>Character Creation</h1> */}
-        <div className="title-wrapper" style={{ alignSelf: "center" }}>
+        <div className="title-wrapper" style={{textAlign:"center", alignSelf: "center" }}>
           <input
             className="char-title"
             type="text"
             placeholder={this.state.charTitle}
             onChange={this.handleCharTitleChange}
             style={{
-              fontSize: "1.5vw",
               textAlign: "center",
               marginBottom: "20px",
             }}
@@ -327,7 +326,7 @@ class CharacterCreate extends React.Component {
 
         <div
           className="resume-details-wrapper"
-          style={{ width: "25%", display: "flex", flexDirection: "column" }}
+          style={{  display: "flex", flexDirection: "column" }}
         >
           <h2 style={{ textAlign: "center" }}>Resume Info</h2>
           {this.state.error && (

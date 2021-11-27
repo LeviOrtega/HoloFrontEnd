@@ -43,7 +43,7 @@
   border-radius: 5%;
   border-style: solid;
   padding: 5px;
-  justify-self: left;
+  justify-self: right;
   align-self: center;
 }
 .log-button:hover {
@@ -67,6 +67,35 @@
   opacity: 1;
   cursor: pointer;
   position: relative;
+}
+
+@media only screen and (max-width: 700px) {
+  .navbar-container {
+    width: 90%;
+    margin: 10px;
+    font-size: 15px;
+    
+    flex-direction: column;
+    row-gap: 5px;
+    justify-content: left;
+    align-items: flex-start;
+ 
+  }
+
+  .link + .link {
+    margin-left: 0px;
+   
+  }
+
+  .navbar {
+height: 120px;
+  }
+
+  .site-title{
+    font-size: 25px;
+  }
+
+  
 }
 
 @keyframes downup-title {
