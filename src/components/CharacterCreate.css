@@ -159,6 +159,19 @@
   flex-direction: column;
 }
 
+@media only screen and (max-width: 1000px) {
+  .character-create {
+   align-items: center;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .character-background {
+    
+    width: 100%;
+  }
+}
+
 @keyframes updown {
   0%,
   100% {

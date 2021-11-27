@@ -10,6 +10,7 @@ import {
 } from "firebase/firestore";
 import { firestore } from "../Firebase";
 import { Link } from "react-router-dom";
+import "./Main.css"
 
 class Main extends React.Component {
   constructor(props) {
@@ -142,15 +143,9 @@ class Main extends React.Component {
 
         <div className="list-container" style={{ width: "90%" }}>
           <ul
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(5, 1fr)",
-              gridTemplateRows: "repeat(2, 1fr)",
-
-              gap: "10px",
-              margin: "0",
-              padding: "0",
-            }}
+          id="list-char"
+          
+           
           >
             {this.state.microPreviewList}
           </ul>

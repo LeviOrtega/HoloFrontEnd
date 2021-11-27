@@ -118,14 +118,7 @@ export default function MyCreations() {
 
       <div className="list-container" style={{ width: "90%" }}>
         <ul
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(5, 1fr)",
-
-            gap: "10px",
-            margin: "0",
-            padding: "0",
-          }}
+          id="list-char"
         >
           {microPreviewList}
         </ul>

@@ -263,11 +263,13 @@ class CharacterCreate extends React.Component {
               <div
                 className="character-hover-wrapper"
                 style={{
+                 
                   transform:
                     "scaleX(" + (this.state.isRightHanded ? 1 : -1) + ")",
                 }}
               >
                 <Character
+                  
                   bladeColor={this.state.bladeColor}
                   hiltColor={this.state.hiltColor}
                   robeColor={this.state.robeColor}
