@@ -3,6 +3,7 @@ import { auth } from "../Firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  sendPasswordResetEmail,
   signOut,
 } from "firebase/auth";
 
@@ -24,6 +25,10 @@ export default function AuthProvider({ children }) {
     return signInWithEmailAndPassword(auth, email, password);
   }
 
+  async function resetPassword(email){
+    return sendPasswordResetEmail(auth, email)
+  }
+
   async function logout() {
     return signOut(auth);
   }
@@ -42,6 +47,7 @@ export default function AuthProvider({ children }) {
     signup,
     login,
     logout,
+    resetPassword,
   };
 
   return (

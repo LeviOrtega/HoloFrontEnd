@@ -13,11 +13,24 @@
   font-size: 10px;
 }
 
+
+
 .sign-error {
   border: white;
   border-radius: 5%;
   border-style: solid;
   background: red;
+  font-size: 80%;
+  color: white;
+  padding: 5%;
+  margin: 5%;
+}
+
+.sign-message {
+  border: white;
+  border-radius: 5%;
+  border-style: solid;
+  background: green;
   font-size: 80%;
   color: white;
   padding: 5%;

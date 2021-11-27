@@ -13,7 +13,9 @@ import Login from "./Login";
 import AuthProvider from "../contexts/AuthContext";
 import PrivateRoute from "./PrivateRoute";
 import Play from "../pages/Play";
+import ForgotPassword from "./ForgotPassword"
 import NotFoundPage from "../pages/NotFound";
+
 
 function App() {
   return (
@@ -37,6 +39,7 @@ function App() {
           <Route path="/play/:previewID" element={<Play />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/forgot_password" element={<ForgotPassword />} />
           <Route path="*" exact={true} element={<NotFoundPage />} />
         </Routes>
         =

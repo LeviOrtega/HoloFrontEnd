@@ -1,28 +1,29 @@
 import React, { useRef, useState } from "react";
 import { Card, Button, Form, Alert } from "react-bootstrap";
-import { Link, useNavigate } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 import "./Signup.css";
+
 import { useAuth } from "../contexts/AuthContext";
 
-export default function Login() {
+export default function ForgotPassword() {
   const emailRef = useRef();
-  const passwordRef = useRef();
-  const { login } = useAuth();
+  const { resetPassword } = useAuth();
   const [error, setError] = useState("");
+  const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
 
     try {
+      setMessage("");
       setError("");
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
-      navigate("/character-create");
+      await resetPassword(emailRef.current.value);
+      setMessage("Check your email for further instructions");
     } catch {
-      setError("Failed to log into account");
+      setMessage("");
+      setError("Failed to reset password");
     }
     setLoading(false);
   }
@@ -31,14 +32,15 @@ export default function Login() {
     <div className="content-wrapper">
       <Card>
         <Card.Body>
-          <h2 className="signup-title">Log In</h2>
+          <h2 className="signup-title">Reset Password</h2>
           {/* {JSON.stringify(currentUser.uid )} */}
-
           {error && (
             <Alert className="sign-error" variant="danger">
               {error}
             </Alert>
           )}
+
+          {message && <Alert className="sign-message">{message}</Alert>}
 
           <Form className="form" onSubmit={handleSubmit}>
             <Form.Group className="form-group" id="email">
@@ -50,27 +52,17 @@ export default function Login() {
                 required
               />
             </Form.Group>
-            <Form.Group className="form-group" id="password">
-              <Form.Label>Password</Form.Label>
-              <Form.Control
-                className="char-title"
-                type="password"
-                ref={passwordRef}
-                required
-              />
-            </Form.Group>
+
+            <div style={{ fontSize: "20px" }}>
+              <Link to="/login">Log In</Link>
+            </div>
+
             <Button className="submit-button" disabled={loading} type="submit">
-              Log In
+              Reset Password
             </Button>
           </Form>
         </Card.Body>
       </Card>
-      <div className="login-suggestion">
-        Don't have an account? <Link to="/signup">Sign Up</Link>
-      </div>
-      <div style={{fontSize:"10px"}}>
-      <Link to="/forgot_password">Forgot Password?</Link>
-      </div>
     </div>
   );
 }
