@@ -2,6 +2,31 @@
   padding:10px;
 }
 
+.copy-wrapper{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.url-field{
+  width: 500px;
+  
+  
+}
+.copy-confirm{
+  border: white;
+  border-radius: 5%;
+  border-style: solid;
+  background: green;
+  font-size: 80%;
+  color: white;
+  padding: 1px;
+  
+}
+
+
 .preview-text-field {
   padding: 5px;
   margin-top: 5px;
@@ -41,9 +66,16 @@
 
 }
 
+.url-field{
+  width: 300px;
+  
+  font-size: 8px;
+  
+}
 
 .text-field{
   width: 400px;
+ 
 }
 }
 
@@ -52,7 +84,12 @@
 
 @media only screen and (max-width: 500px) {
   
-  
+  .url-field{
+    width: 100px;
+    
+    font-size: 4px;
+    
+  }
   
   .text-field{
     width: 100px;

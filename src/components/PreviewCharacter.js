@@ -15,7 +15,24 @@ class PreviewCharacter extends React.Component {
       previewID: this.props.previewID,
       character: null,
       resumeField: null,
+      copied: false,
     };
+
+    this.copy = this.copy.bind(this);
+  }
+
+  getURL() {
+    const el = document.createElement("input");
+    el.value = window.location.href;
+    return el.value;
+  }
+
+  copy() {
+    this.setState({ copied: true });
+    const el = document.createElement("input");
+    el.value = window.location.href;
+
+    navigator.clipboard.writeText(el.value);
   }
 
   componentDidMount() {
@@ -42,11 +59,11 @@ class PreviewCharacter extends React.Component {
                       " 0%, " +
                       characterSnap.data().backgroundColor +
                       " 100%)",
-                    
+
                     border: "white",
                     borderStyle: "solid",
                     borderRadius: "15%",
-                    
+
                     padding: "10px",
                   }}
                 >
@@ -171,7 +188,7 @@ class PreviewCharacter extends React.Component {
                         value={element.desc || ""}
                         style={{
                           textAlign: "center",
-                
+
                           alignSelf: "center",
                         }}
                       />
@@ -195,6 +212,7 @@ class PreviewCharacter extends React.Component {
     );
   }
 
+  
   render() {
     return (
       <div
@@ -205,8 +223,33 @@ class PreviewCharacter extends React.Component {
           alignItems: "center",
         }}
       >
+        
+
         <div style={{ width: "50%" }}>{this.state.character}</div>
         <div style={{}}>{this.state.resumeField}</div>
+        <div className="copy-wrapper">
+
+          
+          <button
+            
+            style={{ alignSelf: "center" }}
+            onClick={this.copy}
+          >
+            <input
+            readOnly
+            className="preview-text-field url-field"
+            type="text"
+            name="creation-url"
+            value={this.getURL()}
+            style={{ textAlign: "center" }}
+          />
+           
+          </button>
+
+          {this.state.copied ? <alert className="copy-confirm">Copied</alert> : <></>}
+
+        </div>
+        
       </div>
     );
   }
