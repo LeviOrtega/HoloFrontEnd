@@ -5,7 +5,7 @@ export default function Sith() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 -0.5 256 256"
-      shape-rendering="crispEdges"
+      shapeRendering="crispEdges"
     >
       <metadata>
         Made with Pixels to Svg https://codepen.io/shshaw/pen/XbxvNj
@@ -31,7 +31,7 @@ export function Jedi() {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 -0.5 256 256"
-      shape-rendering="crispEdges"
+      shapeRendering="crispEdges"
     >
       <metadata>
         Made with Pixels to Svg https://codepen.io/shshaw/pen/XbxvNj

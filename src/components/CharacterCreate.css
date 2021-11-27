@@ -102,22 +102,27 @@
   outline: none !important;
 }
 
+.title-style{
+  font-size: 20px;
+}
+
 .asset-container {
   display: flex;
   flex-direction: column;
   align-self: center;
 }
+
+
 .is-sith-button {
   position: absolute;
-  margin-top: 3%;
-  margin-right: 75%;
+  margin: 3%;
+  left: 0;
+  top: 0;
   font-family: "SMW Text 2 NC", sans-serif;
   text-align: center;
   background: transparent;
   font-size: 1vw;
   color: white;
-  justify-self: center;
-  align-self: flex-start;
   border-radius: 20%;
   border-style: solid;
   border-color: white;
@@ -132,15 +137,14 @@
 
 .is-right-button {
   position: absolute;
-  margin-right: -85%;
-  margin-top: 3%;
+  margin: 3%;
+  right: 0;
+  top: 0;
   font-family: "SMW Text 2 NC", sans-serif;
   text-align: center;
   background: transparent;
   font-size: 1vw;
   color: white;
-  justify-self: right;
-  align-self: flex-start;
   border-radius: 20%;
   border-style: solid;
   border-color: white;

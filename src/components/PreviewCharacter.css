@@ -28,6 +28,11 @@
 }
 
 @media only screen and (max-width: 700px) {
+  .preview-character-container{
+  
+    width: 300px;
+  }
+
 .contact-info{
   align-self: center;
  
@@ -35,12 +40,21 @@
  
 
 }
-.title-wrapper{
-  width: 300px;
-  font-size: 10px;
-}
+
 
 .text-field{
   width: 400px;
 }
 }
+
+
+  
+
+@media only screen and (max-width: 500px) {
+  
+  
+  
+  .text-field{
+    width: 100px;
+  }
+  }

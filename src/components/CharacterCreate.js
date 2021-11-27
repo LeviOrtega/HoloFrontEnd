@@ -220,7 +220,7 @@ class CharacterCreate extends React.Component {
         {/* <h1 style={{ textAlign: "center" }}>Character Creation</h1> */}
         <div className="title-wrapper" style={{textAlign:"center", alignSelf: "center" }}>
           <input
-            className="char-title"
+            className="char-title title-style"
             type="text"
             placeholder={this.state.charTitle}
             onChange={this.handleCharTitleChange}

@@ -1,43 +1,49 @@
-.main-play-wrapper{
-    
-    display:flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    
-    color:white;
-   
-    
+.main-play-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 
+  color: white;
 }
 
-.play-character-container{
-    
-    width: 300px;
+.resume-info-wrapper {
+  width: 40%;
 }
-.holocron-asset{
-    
-    width: 300px;
+
+.resume-title-text {
+  font-size: 40px;
+}
+
+.play-character-container {
+  width: 300px;
+}
+.holocron-asset {
+  width: 300px;
 }
 
 @media only screen and (max-width: 1200px) {
-.play-character-container{
-    
+  .play-character-container {
     width: 200px;
-}
+  }
 
-.main-play-wrapper{
-    
-   
+  .main-play-wrapper {
     flex-direction: column;
-   
-    
+  }
 
-}
+  .resume-info-wrapper {
+    width: 20%;
+  }
 
-.holocron-asset{
-    
+  .holocron-asset {
     width: 200px;
-}
+  }
 
+  .resume-typer-wrapper {
+    font-size: 1.5vw;
+  }
+
+  .resume-title-text{
+    font-size: 2.5vw;
+}
 }

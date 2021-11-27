@@ -114,10 +114,11 @@ class PlayCharacter extends React.Component {
           </div>
 
           {!this.state.loading && (
-            <div style={{ textAlign: "left", width: "40%", margin: "10px" }}>
-              <div style={{ fontSize: "40px", marginBottom: "10px" }}>
+            <div className="resume-info-wrapper" style={{ textAlign: "left", margin: "10px" }}>
+              <div className="resume-title-text" style={{  marginBottom: "10px" }}>
                 {this.state.resumeTitleText}
               </div>
+              <div className="resume-typer-wrapper">
               <Typewriter
                 onInit={(typewriter) => {
                   typewriter
@@ -151,6 +152,7 @@ class PlayCharacter extends React.Component {
                     });
                 }}
               />
+              </div>
             </div>
           )}
         </div>
