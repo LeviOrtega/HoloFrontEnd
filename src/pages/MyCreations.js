@@ -31,6 +31,7 @@ export default function MyCreations() {
               backgroundColor={doc.data().backgroundColor}
               uuid={doc.id}
               charTitle={doc.data().charTitle}
+              isRightHanded={doc.data().isRightHanded}
             />
           </Link>
         </li>,

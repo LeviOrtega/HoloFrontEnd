@@ -3,7 +3,7 @@ body {
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SMW Text 2 NC', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif; */
-  font-family: 'SMW Text 2 NC', sans-serif;
+  font-family: "SMW Text 2 NC", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #111111;
@@ -12,13 +12,13 @@ body {
 code {
   /* font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', 'SMW Text 2 NC',
     monospace; */
-    font-family: 'SMW Text 2 NC', sans-serif;
+  font-family: "SMW Text 2 NC", sans-serif;
 }
 
 @font-face {
-  
-  font-family: 'SMW Text 2 NC';
+  font-family: "SMW Text 2 NC";
   font-style: normal;
   font-weight: 400;
-  src: local('SMW Text 2 NC'), url('https://fonts.cdnfonts.com/s/7371/SMW Text 2 NC.woff') format('woff');
+  src: local("SMW Text 2 NC"),
+    url("https://fonts.cdnfonts.com/s/7371/SMW Text 2 NC.woff") format("woff");
 }

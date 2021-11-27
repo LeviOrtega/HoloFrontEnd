@@ -1,15 +1,14 @@
 import React from "react";
 import { useParams } from "react-router";
 import PlayCharacter from "../components/PlayCharacter";
-import {useNavigate} from 'react-router-dom'
-
+import { useNavigate } from "react-router-dom";
 
 function Play() {
   let { previewID } = useParams();
-  var navigate = useNavigate()
+  var navigate = useNavigate();
 
-  function preview(){
-    navigate("/preview/" + previewID)
+  function preview() {
+    navigate("/preview/" + previewID);
   }
 
   return (
@@ -17,13 +16,12 @@ function Play() {
       className="play-wrapper"
       style={{
         display: "flex",
-        flexDirection:"column",
+        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
       }}
     >
-      <PlayCharacter  previewID={previewID} onClick={() => preview()}/>
-      
+      <PlayCharacter previewID={previewID} onClick={() => preview()} />
     </div>
   );
 }

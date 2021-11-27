@@ -63,19 +63,18 @@
   animation: downup-title 2s linear infinite;
 }
 
-.link + .link:hover{
-    opacity: 1;
+.link + .link:hover {
+  opacity: 1;
   cursor: pointer;
   position: relative;
 }
 
-
 @keyframes downup-title {
-    0%,
-    100% {
-      bottom: 0px;
-    }
-    50% {
-      bottom: 3px;
-    }
+  0%,
+  100% {
+    bottom: 0px;
   }
+  50% {
+    bottom: 3px;
+  }
+}

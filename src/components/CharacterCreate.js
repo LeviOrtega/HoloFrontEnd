@@ -23,6 +23,7 @@ class CharacterCreate extends React.Component {
       eyeColor: this.props.eyeColor,
       skinColor: this.props.skinColor,
       isSith: this.props.isSith,
+      isRightHanded: this.props.isRightHanded,
       backgroundColor: BackgroundColors[this.props.isSith ? 1 : 0],
       ownerID: this.props.ownerID,
       uuid: this.props.uuid,
@@ -60,8 +61,8 @@ class CharacterCreate extends React.Component {
   async publish() {
     if (this.checkNoFormEmpty()) {
       this.setState({
-        error: ""
-      })
+        error: "",
+      });
       let creation = await doc(firestore, "creations/" + this.state.uuid);
       const docData = {
         bladeColor: this.state.bladeColor,
@@ -71,6 +72,7 @@ class CharacterCreate extends React.Component {
         eyeColor: this.state.eyeColor,
         backgroundColor: this.state.backgroundColor,
         isSith: this.state.isSith,
+        isRightHanded: this.state.isRightHanded,
         ownerID: this.state.ownerID,
         dateCreated: new Date(),
         charTitle: this.state.charTitle,
@@ -83,8 +85,8 @@ class CharacterCreate extends React.Component {
       this.state.navigatePreview(this.state.uuid);
     } else {
       this.setState({
-        error: "Cannot submit with empty fields"
-      })
+        error: "Cannot submit with empty fields",
+      });
     }
 
     // let usr = await doc(firestore, 'users/' + this.state.ownerID)
@@ -116,13 +118,12 @@ class CharacterCreate extends React.Component {
     if (this.state.formValues.length <= 2) {
       this.setState({
         formValues: [...this.state.formValues, { desc: "", detail: "" }],
-        error:""
+        error: "",
       });
     } else {
-      
       this.setState({
-        error: "Cannot add more than 3 resume fields"
-      })
+        error: "Cannot add more than 3 resume fields",
+      });
     }
   }
 
@@ -130,12 +131,11 @@ class CharacterCreate extends React.Component {
     if (this.state.formValues.length > 1) {
       let formValues = this.state.formValues;
       formValues.splice(i, 1);
-      this.setState({ formValues, error:"" });
+      this.setState({ formValues, error: "" });
     } else {
-      
       this.setState({
-        error: "Cannot remove all resume fields"
-      })
+        error: "Cannot remove all resume fields",
+      });
     }
   }
 
@@ -182,6 +182,12 @@ class CharacterCreate extends React.Component {
     });
   }
 
+  handleHandedChange() {
+    this.setState({
+      isRightHanded: !this.state.isRightHanded,
+    });
+  }
+
   render() {
     return (
       <div className="main-container">
@@ -220,7 +226,21 @@ class CharacterCreate extends React.Component {
               >
                 <div>{this.state.isSith ? "Sith" : "Jedi"}</div>{" "}
               </button>
-              <div className="character-hover-wrapper">
+
+              <button
+                className="is-right-button"
+                // style={{ backgroundColor: this.state.backgroundColor }}
+                onClick={() => this.handleHandedChange()}
+              >
+                <div>{this.state.isRightHanded ? "Right" : "Left"}</div>{" "}
+              </button>
+              <div
+                className="character-hover-wrapper"
+                style={{
+                  transform:
+                    "scaleX(" + (this.state.isRightHanded ? 1 : -1) + ")",
+                }}
+              >
                 <Character
                   bladeColor={this.state.bladeColor}
                   hiltColor={this.state.hiltColor}
@@ -283,7 +303,11 @@ class CharacterCreate extends React.Component {
         >
           <h2 style={{ textAlign: "center" }}>Resume Info</h2>
           {this.state.error && (
-            <alert className="sign-error" variant="danger" style={{textAlign:"center"}}>
+            <alert
+              className="sign-error"
+              variant="danger"
+              style={{ textAlign: "center" }}
+            >
               {this.state.error}
             </alert>
           )}

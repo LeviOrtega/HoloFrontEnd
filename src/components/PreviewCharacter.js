@@ -18,8 +18,6 @@ class PreviewCharacter extends React.Component {
     };
   }
 
- 
-
   componentDidMount() {
     getDoc(doc(firestore, "creations", this.state.previewID)).then(
       (characterSnap) => {
@@ -67,7 +65,15 @@ class PreviewCharacter extends React.Component {
                     marginTop: "1%",
                   }}
                 >
-                  <div className="character-hover-wrapper ">
+                  <div
+                    className="character-hover-wrapper "
+                    style={{
+                      transform:
+                        "scaleX(" +
+                        (characterSnap.data().isRightHanded ? 1 : -1) +
+                        ")",
+                    }}
+                  >
                     <Character
                       bladeColor={characterSnap.data().bladeColor}
                       hiltColor={characterSnap.data().hiltColor}
@@ -77,21 +83,33 @@ class PreviewCharacter extends React.Component {
                     />
                   </div>
                 </div>
-                <div style={{ marginTop: "2%", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
+                <div
+                  style={{
+                    marginTop: "2%",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
                   {/* await deleteDoc(doc(db, "cities", "DC")); */}
-                 
+
                   <button
                     className="publish"
                     onClick={() => this.state.publish()}
                   >
                     Play Resume
                   </button>
-                  {(this.state.ownerID === characterSnap.data().ownerID) && <button
-                    className="publish"
-                    onClick={() => this.state.delete(characterSnap.data().ownerID)}
-                  >
-                    Delete Charater
-                  </button>}
+                  {this.state.ownerID === characterSnap.data().ownerID && (
+                    <button
+                      className="publish"
+                      onClick={() =>
+                        this.state.delete(characterSnap.data().ownerID)
+                      }
+                    >
+                      Delete Charater
+                    </button>
+                  )}
                 </div>
               </div>
             ),

@@ -34,7 +34,15 @@ class PlayCharacter extends React.Component {
                 style={{ display: "flex", flexDirection: "column", rowGap: 0 }}
               >
                 <div className="preview-character-container">
-                  <div className="character-hover-wrapper ">
+                  <div
+                    className="character-hover-wrapper "
+                    style={{
+                      transform:
+                        "scaleX(" +
+                        (characterSnap.data().isRightHanded ? 1 : -1) +
+                        ")",
+                    }}
+                  >
                     <Character
                       bladeColor={characterSnap.data().bladeColor}
                       hiltColor={characterSnap.data().hiltColor}
@@ -46,8 +54,6 @@ class PlayCharacter extends React.Component {
                 </div>
               </div>
             ),
-
-           
           });
           this.setState({
             backgroundColor: characterSnap.data().backgroundColor,
@@ -91,10 +97,16 @@ class PlayCharacter extends React.Component {
             marginTop: "1%",
             color: "white",
             width: "75%",
+            opacity: this.state.loading ? 0 : 1,
           }}
         >
           <div
-            style={{ display: "flex", flexDirection: "column", width: "30%", marginRight: "2%"}}
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              width: "30%",
+              marginRight: "2%",
+            }}
           >
             <div style={{}}>{this.state.character}</div>
 
@@ -135,10 +147,9 @@ class PlayCharacter extends React.Component {
                     .callFunction(() => {
                       this.setState({
                         resumeTitleText: "",
-
                       });
 
-                      this.state.onClick()
+                      this.state.onClick();
                     });
                 }}
               />

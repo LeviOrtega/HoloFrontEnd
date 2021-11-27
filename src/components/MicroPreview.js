@@ -15,6 +15,7 @@ class MicroPreview extends React.Component {
       backgroundColor: this.props.backgroundColor,
       uuid: this.props.uuid,
       charTitle: this.props.charTitle,
+      isRightHanded: this.props.isRightHanded,
     };
   }
 
@@ -32,7 +33,12 @@ class MicroPreview extends React.Component {
             borderStyle: "solid",
           }}
         >
-          <div className="micro-char-wrapper">
+          <div
+            className="micro-char-wrapper"
+            style={{
+              transform: "scaleX(" + (this.state.isRightHanded ? 1 : -1) + ")",
+            }}
+          >
             <Character
               bladeColor={this.state.bladeColor}
               hiltColor={this.state.hiltColor}
@@ -47,7 +53,7 @@ class MicroPreview extends React.Component {
           style={{
             alignSelf: "center",
             textAlign: "center",
-            
+
             marginTop: "1%",
             background:
               "linear-gradient(90deg, " +
@@ -55,11 +61,10 @@ class MicroPreview extends React.Component {
               " 0%, " +
               this.state.backgroundColor +
               " 100%)",
-            
-            
+
             width: "80%",
             height: "fit-content",
-         
+
             border: "white",
             borderStyle: "solid",
             borderRadius: "15%",

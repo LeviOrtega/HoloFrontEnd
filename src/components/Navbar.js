@@ -2,17 +2,16 @@ import React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
-import {useNavigate} from 'react-router-dom'
-
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
   const { logout, currentUser } = useAuth();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   async function handleLogOut() {
     try {
       await logout();
-      navigate("/")
+      navigate("/");
     } catch {
       alert("Could not log out");
     }
