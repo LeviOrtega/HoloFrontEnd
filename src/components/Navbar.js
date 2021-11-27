@@ -2,22 +2,25 @@ import React from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
 import { useAuth } from "../contexts/AuthContext";
+import {useNavigate} from 'react-router-dom'
 
 
 function Navbar() {
   const { logout, currentUser } = useAuth();
-
-  
+  const navigate = useNavigate()
 
   async function handleLogOut() {
-    await logout();
+    try {
+      await logout();
+      navigate("/")
+    } catch {
+      alert("Could not log out");
+    }
   }
 
   return (
     <nav className="navbar">
-      
       <div className="navbar-container">
-
         <Link
           className="link site-title"
           to="/"

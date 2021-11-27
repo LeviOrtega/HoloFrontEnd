@@ -2,18 +2,23 @@ import React from "react";
 import { doc, getDoc } from "firebase/firestore";
 import { firestore } from "../Firebase";
 import Character from "../resources/Character";
+
 import "./PreviewCharacter.css";
 
 class PreviewCharacter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      onClick: this.props.onClick,
+      publish: this.props.publish,
+      delete: this.props.delete,
+      ownerID: this.props.ownerID,
       previewID: this.props.previewID,
       character: null,
       resumeField: null,
     };
   }
+
+ 
 
   componentDidMount() {
     getDoc(doc(firestore, "creations", this.state.previewID)).then(
@@ -25,7 +30,7 @@ class PreviewCharacter extends React.Component {
             character: (
               <div
                 className="preview-wrapper"
-                style={{ display: "flex", flexDirection: "column"}}
+                style={{ display: "flex", flexDirection: "column" }}
               >
                 <div
                   className="title-wrapper"
@@ -72,9 +77,22 @@ class PreviewCharacter extends React.Component {
                     />
                   </div>
                 </div>
-                <button className="publish" style={{marginTop: "2%"}} onClick={() =>  this.state.onClick()}>
-            Play Resume
-        </button>
+                <div style={{ marginTop: "2%", display:"flex", flexDirection:"column", justifyContent:"center", alignItems:"center"}}>
+                  {/* await deleteDoc(doc(db, "cities", "DC")); */}
+                 
+                  <button
+                    className="publish"
+                    onClick={() => this.state.publish()}
+                  >
+                    Play Resume
+                  </button>
+                  {(this.state.ownerID === characterSnap.data().ownerID) && <button
+                    className="publish"
+                    onClick={() => this.state.delete(characterSnap.data().ownerID)}
+                  >
+                    Delete Charater
+                  </button>}
+                </div>
               </div>
             ),
 
@@ -167,7 +185,6 @@ class PreviewCharacter extends React.Component {
           flexDirection: "column",
           justifyContent: "center",
           alignItems: "center",
-         
         }}
       >
         <div style={{ width: "50%" }}>{this.state.character}</div>
