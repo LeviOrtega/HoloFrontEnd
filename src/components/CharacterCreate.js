@@ -39,27 +39,57 @@ class CharacterCreate extends React.Component {
     this.handleCharTitleChange = this.handleCharTitleChange.bind(this);
   }
 
-  checkNoFormEmpty() {
+  checkForms() {
     if (
       this.state.realName === "" ||
       this.state.contactInfo === "" ||
       this.state.website === ""
-    )
+    ) {
+      this.setState({
+        error: "Cannot submit with empty fields",
+      });
       return false;
+    }
+
+    if (
+      this.state.realName.length >= 50 ||
+      this.state.contactInfo.length >= 50 ||
+      this.state.website.length >= 100
+    ){
+      this.setState({
+        error: "Exceeded character limit on contact information fields",
+      });
+      return false;
+      
+    }
 
     for (let i = 0; i < this.state.formValues.length; i++) {
       if (
         this.state.formValues[i]["desc"] === "" ||
         this.state.formValues[i]["detail"] === ""
-      )
+      ) {
+        this.setState({
+          error: "Cannot submit with empty fields",
+        });
         return false;
+      }
+
+      if (
+        this.state.formValues[i]["desc"].length >= 20 ||
+        this.state.formValues[i]["detail"].length >= 800
+      ) {
+        this.setState({
+          error: "Exceeded character limit on resume information fields",
+        });
+        return false;
+      }
     }
 
     return true;
   }
 
   async publish() {
-    if (this.checkNoFormEmpty()) {
+    if (this.checkForms()) {
       this.setState({
         error: "",
       });
@@ -83,10 +113,6 @@ class CharacterCreate extends React.Component {
       };
       await setDoc(creation, docData);
       this.state.navigatePreview(this.state.uuid);
-    } else {
-      this.setState({
-        error: "Cannot submit with empty fields",
-      });
     }
 
     // let usr = await doc(firestore, 'users/' + this.state.ownerID)
@@ -232,7 +258,7 @@ class CharacterCreate extends React.Component {
                 // style={{ backgroundColor: this.state.backgroundColor }}
                 onClick={() => this.handleHandedChange()}
               >
-                <div>{this.state.isRightHanded ? "Right" : "Left"}</div>{" "}
+                <div>{this.state.isRightHanded ? "R" : "L"}</div>{" "}
               </button>
               <div
                 className="character-hover-wrapper"

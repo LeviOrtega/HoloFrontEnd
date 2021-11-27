@@ -11,6 +11,10 @@ import uuid from "react-uuid";
 import { useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
 
+import { uniqueNamesGenerator, starWars } from 'unique-names-generator';
+
+
+
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
 }
@@ -22,6 +26,12 @@ function CharacterCreatePage() {
   async function navigatePreview(id) {
     navigate("/preview/" + id);
   }
+
+  const config = {
+    dictionaries: [starWars]
+  }
+  
+  const characterName = uniqueNamesGenerator(config);
 
   return (
     <div className="character-create-page">
@@ -36,7 +46,7 @@ function CharacterCreatePage() {
         uuid={uuid()}
         // just in case currentUser is null then we want to set this to nothing
         ownerID={currentUser ? currentUser.uid : ""}
-        charTitle={"Character Title"}
+        charTitle={characterName}
         formValues={[{ desc: "", detail: "" }]}
         realName={""}
         contactInfo={""}
