@@ -4,6 +4,7 @@ import { firestore } from "../Firebase";
 import Character from "../resources/Character";
 import Typewriter from "typewriter-effect";
 import Sith, { Jedi } from "../resources/Holocron";
+import "./PlayCharacter.css"
 
 class PlayCharacter extends React.Component {
   constructor(props) {
@@ -30,10 +31,10 @@ class PlayCharacter extends React.Component {
           this.setState({
             character: (
               <div
-                className="preview-wrapper"
+                className="play-wrapper"
                 style={{ display: "flex", flexDirection: "column", rowGap: 0 }}
               >
-                <div className="preview-character-container">
+                <div className="play-character-container">
                   <div
                     className="character-hover-wrapper "
                     style={{
@@ -84,34 +85,31 @@ class PlayCharacter extends React.Component {
   render() {
     return (
       <>
-        <div
-          style={{
-            backgroundColor: this.state.backgroundColor,
-            border: "white",
-            borderStyle: "solid",
-            borderRadius: "10%",
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: "1%",
-            color: "white",
-            width: "75%",
-            opacity: this.state.loading ? 0 : 1,
-          }}
+      <div className="main-play-background"style={{
+        backgroundColor: this.state.backgroundColor,
+        width: "75%",
+        border: "white",
+        borderStyle:"solid",
+        borderRadius:"10%",
+        marginTop:"1%",
+        opacity: this.state.loading ? 0 : 1,
+      }}>
+        <div className="main-play-wrapper"
+          
         >
           <div
             style={{
               display: "flex",
               flexDirection: "column",
-              width: "30%",
+              
               marginRight: "2%",
+              alignSelf:"center"
             }}
           >
             <div style={{}}>{this.state.character}</div>
 
             {!this.state.loading && (
-              <div>{this.state.isSith ? <Sith /> : <Jedi />}</div>
+              <div className="holocron-asset">{this.state.isSith ? <Sith /> : <Jedi />}</div>
             )}
           </div>
 
@@ -156,7 +154,7 @@ class PlayCharacter extends React.Component {
             </div>
           )}
         </div>
-
+        </div>
         {!this.state.loading && (
           <button
             className="publish"
@@ -166,7 +164,7 @@ class PlayCharacter extends React.Component {
             Preview Full Resume
           </button>
         )}
-      </>
+     </>
     );
   }
 }

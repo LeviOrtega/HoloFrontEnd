@@ -1,3 +1,7 @@
+.preview-wrapper{
+  padding:10px;
+}
+
 .preview-text-field {
   padding: 5px;
   margin-top: 5px;
@@ -11,4 +15,32 @@
   resize: none;
   outline: none !important;
   caret-color: transparent;
+}
+
+.contact-info{
+  display:flex;
+  flex-direction: row;
+}
+
+.preview-character-container{
+  align-self: center;
+  width: 400px;
+}
+
+@media only screen and (max-width: 700px) {
+.contact-info{
+  align-self: center;
+ 
+  flex-direction: column;
+ 
+
+}
+.title-wrapper{
+  width: 300px;
+  font-size: 10px;
+}
+
+.text-field{
+  width: 400px;
+}
 }

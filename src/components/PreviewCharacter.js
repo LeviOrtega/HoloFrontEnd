@@ -42,11 +42,11 @@ class PreviewCharacter extends React.Component {
                       " 0%, " +
                       characterSnap.data().backgroundColor +
                       " 100%)",
-                    width: "auto",
+                    
                     border: "white",
                     borderStyle: "solid",
                     borderRadius: "15%",
-                    fontSize: "1.5vw",
+                    
                     padding: "10px",
                   }}
                 >
@@ -120,14 +120,14 @@ class PreviewCharacter extends React.Component {
                   Contact Info
                 </h2>
                 <form style={{ textAlign: "center" }}>
-                  <div style={{ display: "flex", flexDirection: "row" }}>
+                  <div className="contact-info">
                     <input
                       readOnly
                       className="preview-text-field"
                       type="text"
                       name="real-name"
                       value={characterSnap.data().realName}
-                      style={{ textAlign: "center", width: "auto" }}
+                      style={{ textAlign: "center" }}
                     />
                     <input
                       readOnly
@@ -135,7 +135,7 @@ class PreviewCharacter extends React.Component {
                       type="text"
                       name="contact-info"
                       value={characterSnap.data().contactInfo}
-                      style={{ textAlign: "center", width: "auto" }}
+                      style={{ textAlign: "center" }}
                     />
                     <input
                       readOnly
@@ -143,7 +143,7 @@ class PreviewCharacter extends React.Component {
                       type="text"
                       name="website"
                       value={characterSnap.data().website}
-                      style={{ textAlign: "center", width: "auto" }}
+                      style={{ textAlign: "center" }}
                     />
                   </div>
                 </form>
@@ -164,14 +164,14 @@ class PreviewCharacter extends React.Component {
                     >
                       <input
                         readOnly
-                        className="preview-text-field"
+                        className="preview-text-field text-field"
                         placeholder={"Title"}
                         type="text"
                         name="desc"
                         value={element.desc || ""}
                         style={{
                           textAlign: "center",
-                          width: "50%",
+                
                           alignSelf: "center",
                         }}
                       />
