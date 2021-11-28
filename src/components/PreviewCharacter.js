@@ -239,7 +239,7 @@ class PreviewCharacter extends React.Component {
         }}
       >
         
-        {this.state.copiedContact ? <alert className="copy-confirm">Copied</alert> : <></>}
+        {this.state.copiedContact ? <alert className="copy-confirm">Copied to Clipboard</alert> : <></>}
 
         <div style={{ width: "50%" }}>{this.state.character}</div>
         <div style={{}}>{this.state.resumeField}</div>
@@ -255,7 +255,7 @@ class PreviewCharacter extends React.Component {
            
           </button>
 
-          {this.state.copied ? <alert className="copy-confirm">Copied</alert> : <></>}
+          {this.state.copied ? <alert className="copy-confirm">Copied to Clipboard</alert> : <></>}
 
         </div>}
         

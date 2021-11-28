@@ -226,7 +226,7 @@ class PlayCharacter extends React.Component {
             </button>
 
             {this.state.copied ? (
-              <alert className="copy-confirm">Copied</alert>
+              <alert className="copy-confirm">Copied to Clipboard</alert>
             ) : (
               <></>
             )}
