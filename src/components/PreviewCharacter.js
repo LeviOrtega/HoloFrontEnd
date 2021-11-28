@@ -16,6 +16,7 @@ class PreviewCharacter extends React.Component {
       character: null,
       resumeField: null,
       copied: false,
+      navNotFound: this.props.navNotFound,
     };
 
     this.copy = this.copy.bind(this);
@@ -208,6 +209,10 @@ class PreviewCharacter extends React.Component {
             ),
           });
         }
+
+        else{
+          return this.state.navNotFound();
+        }
       }
     );
   }
@@ -227,28 +232,21 @@ class PreviewCharacter extends React.Component {
 
         <div style={{ width: "50%" }}>{this.state.character}</div>
         <div style={{}}>{this.state.resumeField}</div>
-        <div className="copy-wrapper">
+        {this.state.character && <div className="copy-wrapper">
 
           
           <button
-            
+            className="preview-text-field url-field"
             style={{ alignSelf: "center" }}
             onClick={this.copy}
           >
-            <input
-            readOnly
-            className="preview-text-field url-field"
-            type="text"
-            name="creation-url"
-            value={this.getURL()}
-            style={{ textAlign: "center" }}
-          />
+           {this.getURL()}
            
           </button>
 
           {this.state.copied ? <alert className="copy-confirm">Copied</alert> : <></>}
 
-        </div>
+        </div>}
         
       </div>
     );

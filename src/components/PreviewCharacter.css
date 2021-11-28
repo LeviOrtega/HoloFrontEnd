@@ -12,8 +12,8 @@
 
 .url-field{
   width: 500px;
-  
-  
+  cursor:pointer;
+
 }
 .copy-confirm{
   border: white;
@@ -85,13 +85,13 @@
 @media only screen and (max-width: 500px) {
   
   .url-field{
-    width: 100px;
+    width: 200px;
     
-    font-size: 4px;
+    font-size: 6px;
     
   }
   
   .text-field{
-    width: 100px;
+    width: 200px;
   }
   }

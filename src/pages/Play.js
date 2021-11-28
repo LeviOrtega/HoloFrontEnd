@@ -11,6 +11,10 @@ function Play() {
     navigate("/preview/" + previewID);
   }
 
+  function navNotFound() {
+    navigate("/*");
+  }
+
   return (
     <div
       className="play-wrapper"
@@ -21,7 +25,11 @@ function Play() {
         alignItems: "center",
       }}
     >
-      <PlayCharacter previewID={previewID} onClick={() => preview()} />
+      <PlayCharacter
+        previewID={previewID}
+        preview={() => preview()}
+        navNotFound={() => navNotFound()}
+      />
     </div>
   );
 }

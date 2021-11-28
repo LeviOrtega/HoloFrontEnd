@@ -17,7 +17,8 @@ class PlayCharacter extends React.Component {
       resumeTitle: [],
       resumeTitleText: "",
       loading: true,
-      onClick: this.props.onClick,
+      preview: this.props.preview,
+      navNotFound: this.props.navNotFound,
       isSith: false,
     };
   }
@@ -60,6 +61,10 @@ class PlayCharacter extends React.Component {
             backgroundColor: characterSnap.data().backgroundColor,
             isSith: characterSnap.data().isSith,
           });
+        }
+        else{
+          return this.state.navNotFound();
+          
         }
 
         characterSnap.data().formValues.map((element) =>
@@ -114,7 +119,7 @@ class PlayCharacter extends React.Component {
           </div>
 
           {!this.state.loading && (
-            <div className="resume-info-wrapper" style={{ textAlign: "left", margin: "10px" }}>
+            <div className="resume-info-wrapper" style={{ margin: "10px" }}>
               <div className="resume-title-text" style={{  marginBottom: "10px" }}>
                 {this.state.resumeTitleText}
               </div>
@@ -148,7 +153,7 @@ class PlayCharacter extends React.Component {
                         resumeTitleText: "",
                       });
 
-                      this.state.onClick();
+                      this.state.preview();
                     });
                 }}
               />
@@ -161,7 +166,7 @@ class PlayCharacter extends React.Component {
           <button
             className="publish"
             style={{ marginBottom: "%" }}
-            onClick={() => this.state.onClick()}
+            onClick={() => this.state.preview()}
           >
             Preview Full Resume
           </button>

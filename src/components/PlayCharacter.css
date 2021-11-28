@@ -8,6 +8,7 @@
 }
 
 .resume-info-wrapper {
+  text-align: left;
   width: 40%;
 }
 
@@ -29,10 +30,15 @@
 
   .main-play-wrapper {
     flex-direction: column;
+  
   }
 
+ 
+
   .resume-info-wrapper {
-    width: 20%;
+    text-align: center;
+    width: 50%;
+   
   }
 
   .holocron-asset {
@@ -40,10 +46,10 @@
   }
 
   .resume-typer-wrapper {
-    font-size: 1.5vw;
+    font-size: 1.8vw;
   }
 
   .resume-title-text{
-    font-size: 2.5vw;
+    font-size: 3vw;
 }
 }

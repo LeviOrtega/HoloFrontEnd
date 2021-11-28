@@ -16,6 +16,10 @@ function Preview() {
     navigate("/play/" + previewID);
   }
 
+  function navNotFound(){
+    navigate("/*")
+  }
+
   async function handleDelete(creationOwnerID) {
     if (!currentUser) {
       return navigate("/login");
@@ -54,6 +58,7 @@ function Preview() {
         publish={() => play()}
         delete={(creationOwnerID) => handleDelete(creationOwnerID)}
         ownerID={currentUser ? currentUser.uid : ""}
+        navNotFound={() => navNotFound()}
       />
     </div>
   );
