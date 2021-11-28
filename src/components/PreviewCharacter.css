@@ -1,7 +1,9 @@
 .preview-wrapper{
   padding:10px;
 }
-
+.contact-field{
+  cursor: pointer;
+}
 .copy-wrapper{
   display:flex;
   flex-direction: column;
@@ -23,6 +25,7 @@
   font-size: 80%;
   color: white;
   padding: 1px;
+  margin: 1px;
   
 }
 

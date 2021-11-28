@@ -16,6 +16,7 @@ class PreviewCharacter extends React.Component {
       character: null,
       resumeField: null,
       copied: false,
+      copiedContact: false,
       navNotFound: this.props.navNotFound,
     };
 
@@ -26,6 +27,11 @@ class PreviewCharacter extends React.Component {
     const el = document.createElement("input");
     el.value = window.location.href;
     return el.value;
+  }
+
+  copyText(text){
+    this.setState({ copiedContact: true });
+    navigator.clipboard.writeText(text);
   }
 
   copy() {
@@ -141,30 +147,34 @@ class PreviewCharacter extends React.Component {
                   <div className="contact-info">
                     <input
                       readOnly
-                      className="preview-text-field"
+                      className="preview-text-field contact-field"
                       type="text"
                       name="real-name"
-                      value={characterSnap.data().realName}
-                      style={{ textAlign: "center" }}
-                    />
-                    <input
-                      readOnly
-                      className="preview-text-field"
-                      type="text"
-                      name="contact-info"
                       value={characterSnap.data().contactInfo}
                       style={{ textAlign: "center" }}
+                      onClick={() => this.copyText(characterSnap.data().contactInfo)}
                     />
                     <input
                       readOnly
-                      className="preview-text-field"
+                      className="preview-text-field contact-field"
+                      type="text"
+                      name="contact-info"
+                      value={characterSnap.data().realName}
+                      style={{ textAlign: "center" }}
+                      onClick={() => this.copyText(characterSnap.data().realName)}
+                    />
+                    <input
+                      readOnly
+                      className="preview-text-field contact-field"
                       type="text"
                       name="website"
                       value={characterSnap.data().website}
                       style={{ textAlign: "center" }}
+                      onClick={() => {this.copyText(characterSnap.data().website); this.setState({copied: true})}}
                     />
                   </div>
                 </form>
+
 
                 <h2 style={{ textAlign: "center", color: "white" }}>
                   Resume Info
@@ -229,6 +239,7 @@ class PreviewCharacter extends React.Component {
         }}
       >
         
+        {this.state.copiedContact ? <alert className="copy-confirm">Copied</alert> : <></>}
 
         <div style={{ width: "50%" }}>{this.state.character}</div>
         <div style={{}}>{this.state.resumeField}</div>
