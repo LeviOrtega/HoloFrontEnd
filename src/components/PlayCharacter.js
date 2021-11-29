@@ -218,7 +218,7 @@ class PlayCharacter extends React.Component {
         {!this.state.loading && (
           <div className="copy-wrapper">
             <button
-              className="publish url-field"
+              className="preview-text-field url-field"
               style={{ alignSelf: "center" }}
               onClick={this.copy}
             >

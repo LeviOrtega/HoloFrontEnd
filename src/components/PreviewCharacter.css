@@ -22,7 +22,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  column-gap: 5px;
+  column-gap: 2%;
   margin: 1px;
 }
 .copy-confirm{
