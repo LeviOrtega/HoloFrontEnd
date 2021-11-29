@@ -11,6 +11,7 @@ class PreviewCharacter extends React.Component {
     this.state = {
       publish: this.props.publish,
       delete: this.props.delete,
+      edit: this.props.edit,
       ownerID: this.props.ownerID,
       previewID: this.props.previewID,
       character: null,
@@ -124,6 +125,17 @@ class PreviewCharacter extends React.Component {
                   >
                     Play Resume
                   </button>
+                  <div className="edit-delete-wrapper">
+                  {this.state.ownerID === characterSnap.data().ownerID && (
+                    <button
+                      className="publish"
+                      onClick={() =>
+                        this.state.edit()
+                      }
+                    >
+                     Edit
+                    </button>
+                  )}
                   {this.state.ownerID === characterSnap.data().ownerID && (
                     <button
                       className="publish"
@@ -131,50 +143,17 @@ class PreviewCharacter extends React.Component {
                         this.state.delete(characterSnap.data().ownerID)
                       }
                     >
-                      Delete Charater
+                      Delete
                     </button>
                   )}
+                  </div>
                 </div>
               </div>
             ),
 
             resumeField: (
               <div>
-                <h2 style={{ textAlign: "center", color: "white" }}>
-                  Contact Info
-                </h2>
-                <form style={{ textAlign: "center" }}>
-                  <div className="contact-info">
-                    <input
-                      readOnly
-                      className="preview-text-field contact-field"
-                      type="text"
-                      name="real-name"
-                      value={characterSnap.data().contactInfo}
-                      style={{ textAlign: "center" }}
-                      onClick={() => this.copyText(characterSnap.data().contactInfo)}
-                    />
-                    <input
-                      readOnly
-                      className="preview-text-field contact-field"
-                      type="text"
-                      name="contact-info"
-                      value={characterSnap.data().realName}
-                      style={{ textAlign: "center" }}
-                      onClick={() => this.copyText(characterSnap.data().realName)}
-                    />
-                    <input
-                      readOnly
-                      className="preview-text-field contact-field"
-                      type="text"
-                      name="website"
-                      value={characterSnap.data().website}
-                      style={{ textAlign: "center" }}
-                      onClick={() => {this.copyText(characterSnap.data().website); this.setState({copied: true})}}
-                    />
-                  </div>
-                </form>
-
+               
 
                 <h2 style={{ textAlign: "center", color: "white" }}>
                   Resume Info
@@ -215,6 +194,41 @@ class PreviewCharacter extends React.Component {
                     </div>
                   ))}
                 </form>
+                <h2 style={{ textAlign: "center", color: "white" }}>
+                  Contact Info
+                </h2>
+                <form style={{ textAlign: "center" }}>
+                  <div className="contact-info">
+                    <input
+                      readOnly
+                      className="preview-text-field contact-field"
+                      type="text"
+                      name="real-name"
+                      value={characterSnap.data().contactInfo}
+                      style={{ textAlign: "center" }}
+                      onClick={() => this.copyText(characterSnap.data().contactInfo)}
+                    />
+                    <input
+                      readOnly
+                      className="preview-text-field contact-field"
+                      type="text"
+                      name="contact-info"
+                      value={characterSnap.data().realName}
+                      style={{ textAlign: "center" }}
+                      onClick={() => this.copyText(characterSnap.data().realName)}
+                    />
+                    <input
+                      readOnly
+                      className="preview-text-field contact-field"
+                      type="text"
+                      name="website"
+                      value={characterSnap.data().website}
+                      style={{ textAlign: "center" }}
+                      onClick={() => {this.copyText(characterSnap.data().website)}}
+                    />
+                  </div>
+                </form>
+
               </div>
             ),
           });
@@ -239,10 +253,11 @@ class PreviewCharacter extends React.Component {
         }}
       >
         
-        {this.state.copiedContact ? <alert className="copy-confirm">Copied to Clipboard</alert> : <></>}
 
         <div style={{ width: "50%" }}>{this.state.character}</div>
         <div style={{}}>{this.state.resumeField}</div>
+        {this.state.copiedContact ? <alert className="copy-confirm">Copied to Clipboard</alert> : <></>}
+
         {this.state.character && <div className="copy-wrapper">
 
           

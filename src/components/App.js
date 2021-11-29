@@ -15,6 +15,7 @@ import PrivateRoute from "./PrivateRoute";
 import Play from "../pages/Play";
 import ForgotPassword from "./ForgotPassword"
 import NotFoundPage from "../pages/NotFound";
+import EditCharacter from "../pages/EditCharacter";
 
 
 function App() {
@@ -36,6 +37,10 @@ function App() {
           </Route>
           <Route path="/about" element={<About />} />
           <Route path="/preview/:previewID" element={<Preview />} />
+          <Route exact path="/edit-character/:charID" element={<PrivateRoute />}>
+          <Route path="/edit-character/:charID" element={<EditCharacter />} />
+            </Route>
+
           <Route path="/play/:previewID" element={<Play />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />

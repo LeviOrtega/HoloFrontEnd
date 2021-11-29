@@ -40,7 +40,7 @@ export default function AuthProvider({ children }) {
     });
 
     return unsubsribe;
-  }, []);
+  }, []);// eslint-disable-line react-hooks/exhaustive-deps
 
   const value = {
     currentUser,

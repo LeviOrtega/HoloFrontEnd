@@ -12,12 +12,21 @@ function Preview() {
   const [error, setError] = useState("");
   var navigate = useNavigate();
 
+
+
   function play() {
     navigate("/play/" + previewID);
   }
 
   function navNotFound(){
     navigate("/*")
+  }
+
+  function edit(){
+    if (!currentUser) {
+      return navigate("/login");
+    }
+    navigate("/edit-character/" + previewID)
   }
 
   async function handleDelete(creationOwnerID) {
@@ -56,6 +65,7 @@ function Preview() {
       <PreviewCharacter
         previewID={previewID}
         publish={() => play()}
+        edit={() => edit()}
         delete={(creationOwnerID) => handleDelete(creationOwnerID)}
         ownerID={currentUser ? currentUser.uid : ""}
         navNotFound={() => navNotFound()}
