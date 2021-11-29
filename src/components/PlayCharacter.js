@@ -217,6 +217,9 @@ class PlayCharacter extends React.Component {
         )}
         {!this.state.loading && (
           <div className="copy-wrapper">
+             <h2 style={{ textAlign: "center", color: "white" }}>
+                  Share Your Creation
+                </h2>
             <button
               className="preview-text-field url-field"
               style={{ alignSelf: "center" }}

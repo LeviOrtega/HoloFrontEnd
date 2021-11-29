@@ -259,7 +259,9 @@ class PreviewCharacter extends React.Component {
         {this.state.copiedContact ? <alert className="copy-confirm">Copied to Clipboard</alert> : <></>}
 
         {this.state.character && <div className="copy-wrapper">
-
+        <h2 style={{ textAlign: "center", color: "white" }}>
+                  Share Your Creation
+                </h2>
           
           <button
             className="preview-text-field url-field"
