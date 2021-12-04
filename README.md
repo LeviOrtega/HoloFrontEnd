@@ -10,6 +10,8 @@ Holocrons are ancient repositories of knowledge and wisdom in the Star Wars univ
 
 # [Demo Video](https://www.youtube.com/watch?v=pI53nV-qqYo)
 
+# [Character Demo](https://holocronresume.com/preview/5d7151a-b61-b1f5-0b10-704d00462d4f)
+
 
 ## Features ##
 - 'Create Character' Page
