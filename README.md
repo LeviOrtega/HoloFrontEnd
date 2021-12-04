@@ -8,9 +8,9 @@ This website was created by me, Levi Ortega, for a Hackathon hosted by the compa
 
 Holocrons are ancient repositories of knowledge and wisdom in the Star Wars universe that can only be accessed by those skilled in the Force. I had noticed the similarities between these repositories and what we use Resumes for. Thus, Holocron Resume was born.
 
-# [Demo Video](https://www.youtube.com/watch?v=pI53nV-qqYo)
+## [Demo Video](https://www.youtube.com/watch?v=pI53nV-qqYo) ##
 
-# [Character Demo](https://holocronresume.com/preview/5d7151a-b61-b1f5-0b10-704d00462d4f)
+## [Character Demo](https://holocronresume.com/preview/5d7151a-b61-b1f5-0b10-704d00462d4f) ##
 
 
 ## Features ##
