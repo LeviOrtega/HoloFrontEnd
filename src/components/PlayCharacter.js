@@ -124,6 +124,7 @@ class PlayCharacter extends React.Component {
             borderRadius: "15%",
 
             padding: "10px",
+            opacity: (this.state.loading ? 0 : 1),
           }}
         >
           <label style={{ color: "white" }}>{this.state.charTitle}</label>
